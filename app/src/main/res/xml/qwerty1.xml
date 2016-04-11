@@ -56,7 +56,7 @@
         <Key android:codes="3246" android:keyLabel="ಮ" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:codes="-1" android:keyIcon="@drawable/arrows" android:keyEdgeFlags="left" android:isRepeatable="true"/>
+        <Key android:codes="-1" android:keyIcon="@drawable/shift" android:keyEdgeFlags="left" android:isRepeatable="true"/>
         <Key android:codes="3247" android:keyLabel="ಯ"/>
         <Key android:codes="3248" android:keyLabel="ರ"/>
         <Key android:codes="3250" android:keyLabel="ಲ"/>
@@ -66,15 +66,15 @@
         <Key android:codes="3256" android:keyLabel="ಸ"/>
         <Key android:codes="3257" android:keyLabel="ಹ"/>
         <Key android:codes="3251" android:keyLabel="ಳ"/>
-        <Key android:codes="-5" android:keyIcon="@drawable/back"  android:keyWidth="19%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/backspace"  android:keyWidth="19%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
 
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="44" android:keyIcon="@drawable/world" android:keyWidth="15%p"  android:keyEdgeFlags="left"/>
+        <Key android:codes="44" android:keyIcon="@drawable/globe" android:keyWidth="15%p"  android:keyEdgeFlags="left"/>
         <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p" />
-        <Key android:codes="32" android:keyIcon="@drawable/nature" android:keyWidth="50%p" android:isRepeatable="true"/>
+        <Key android:codes="32" android:keyIcon="@drawable/people" android:keyWidth="50%p" android:isRepeatable="true"/>
         <Key android:codes="46" android:keyLabel="." android:keyWidth="10%p"/>
         <!--<Key android:codes="63,33,58" android:keyLabel="\? ! :"/>-->
-        <Key android:codes="-4" android:keyIcon="@drawable/circle" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
+        <Key android:codes="-4" android:keyIcon="@drawable/done" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
     </Row>
 </Keyboard>

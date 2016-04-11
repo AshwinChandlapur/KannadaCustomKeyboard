@@ -6,6 +6,6 @@
     android:textStyle="bold|italic"
     android:textSize="25sp"
     android:textColor="#ffffff"
-    android:keyBackground="@drawable/back">
+    android:keyBackground="@drawable/backs">
 
 </TextView>
