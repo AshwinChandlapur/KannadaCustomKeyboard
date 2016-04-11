@@ -46,11 +46,11 @@
     <Row>
         <Key android:codes="3236" android:keyLabel="ತ" android:keyEdgeFlags="left"/>
         <Key android:codes="3237" android:keyLabel="ಥ"/>
-        <Key android:codes="3237" android:keyLabel="ದ"/>
-        <Key android:codes="3238" android:keyLabel="ಧ"/>
+        <Key android:codes="3238" android:keyLabel="ದ"/>
+        <Key android:codes="3239" android:keyLabel="ಧ"/>
         <Key android:codes="3240" android:keyLabel="ನ" android:verticalGap="3px" android:horizontalGap="3px"/>
         <Key android:codes="3242" android:keyLabel="ಪ"/>
-        <Key android:codes="3242" android:keyLabel="ಫ"/>
+        <Key android:codes="3243" android:keyLabel="ಫ"/>
         <Key android:codes="3244" android:keyLabel="ಬ"/>
         <Key android:codes="3245" android:keyLabel="ಭ"/>
         <Key android:codes="3246" android:keyLabel="ಮ" android:keyEdgeFlags="right"/>
@@ -70,11 +70,11 @@
 
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p"  android:keyEdgeFlags="left"/>
-        <Key android:codes="47" android:keyLabel="/" android:keyWidth="10%p" />
-        <Key android:codes="46" android:keyLabel="."/>
-        <Key android:codes="32" android:keyIcon="@drawable/nature" android:keyWidth="40%p" android:isRepeatable="true"/>
-        <Key android:codes="63,33,58" android:keyLabel="\? ! :"/>
-        <Key android:codes="-4" android:keyIcon="@drawable/circle" android:keyWidth="20%p" android:keyEdgeFlags="right"/>
+        <Key android:codes="44" android:keyIcon="@drawable/world" android:keyWidth="15%p"  android:keyEdgeFlags="left"/>
+        <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p" />
+        <Key android:codes="32" android:keyIcon="@drawable/nature" android:keyWidth="50%p" android:isRepeatable="true"/>
+        <Key android:codes="46" android:keyLabel="." android:keyWidth="10%p"/>
+        <!--<Key android:codes="63,33,58" android:keyLabel="\? ! :"/>-->
+        <Key android:codes="-4" android:keyIcon="@drawable/circle" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
     </Row>
 </Keyboard>

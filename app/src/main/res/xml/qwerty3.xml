@@ -5,18 +5,7 @@
     android:verticalGap="0px"
     android:keyHeight="43dp">
 
-    <Row>
-        <Key android:codes="49" android:keyLabel="1" android:keyEdgeFlags="left"/>
-        <Key android:codes="50" android:keyLabel="2"/>
-        <Key android:codes="51" android:keyLabel="3"/>
-        <Key android:codes="52" android:keyLabel="4"/>
-        <Key android:codes="53" android:keyLabel="5"/>
-        <Key android:codes="54" android:keyLabel="6"/>
-        <Key android:codes="55" android:keyLabel="7"/>
-        <Key android:codes="56" android:keyLabel="8"/>
-        <Key android:codes="57" android:keyLabel="9"/>
-        <Key android:codes="48" android:keyLabel="0" android:keyEdgeFlags="right"/>
-    </Row>
+
     <Row>
         <Key android:codes="3303" android:keyLabel="೧" android:keyEdgeFlags="left"/>
         <Key android:codes="3304" android:keyLabel="೨"/>
@@ -53,18 +42,7 @@
         <Key android:codes="123" android:keyLabel="{"/>
         <Key android:codes="125" android:keyLabel="}" android:keyEdgeFlags="right"/>
     </Row>
-    <Row>
-        <Key android:codes="3236" android:keyLabel="ತ" android:keyEdgeFlags="left"/>
-        <Key android:codes="3237" android:keyLabel="ಥ"/>
-        <Key android:codes="3237" android:keyLabel="ದ"/>
-        <Key android:codes="3238" android:keyLabel="ಧ"/>
-        <Key android:codes="3240" android:keyLabel="ನ" android:verticalGap="3px" android:horizontalGap="3px"/>
-        <Key android:codes="3242" android:keyLabel="ಪ"/>
-        <Key android:codes="3242" android:keyLabel="ಫ"/>
-        <Key android:codes="3244" android:keyLabel="ಬ"/>
-        <Key android:codes="3245" android:keyLabel="ಭ"/>
-        <Key android:codes="3246" android:keyLabel="ಮ" android:keyEdgeFlags="right"/>
-    </Row>
+
     <Row>
         <Key android:codes="0/1" android:keyIcon="@drawable/arrows"  android:keyEdgeFlags="left"/>
         <Key android:codes="3247" android:keyLabel="ಯ"/>

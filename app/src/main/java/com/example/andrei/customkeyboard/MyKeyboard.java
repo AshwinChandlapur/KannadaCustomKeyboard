@@ -28,13 +28,6 @@ public class MyKeyboard extends InputMethodService
         kv.setOnKeyboardActionListener(this);
         return kv;
     }
-    public View onCreateInputView1() {
-        kv1 = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
-        keyboard1 = new Keyboard(this, R.xml.qwerty);
-        kv1.setKeyboard(keyboard);
-        kv1.setOnKeyboardActionListener(this);
-        return kv1;
-    }
 
 
     @Override
@@ -57,7 +50,7 @@ public class MyKeyboard extends InputMethodService
                ic.deleteSurroundingText(1, 0);
                 break;
             case Keyboard.KEYCODE_SHIFT:
-                keyboard1 = new Keyboard(this, R.xml.qwerty2);
+                keyboard1 = new Keyboard(this, R.xml.qwerty3);
                 kv.setKeyboard(keyboard1);
                 kv.invalidateAllKeys();
                 //caps=!caps;
