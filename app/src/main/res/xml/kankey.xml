@@ -70,7 +70,7 @@
 
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="44" android:keyIcon="@drawable/globe" android:keyWidth="15%p"  android:keyEdgeFlags="left"/>
+        <Key android:codes="-199" android:keyIcon="@drawable/globe" android:keyWidth="15%p"  android:keyEdgeFlags="left"/>
         <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p" />
         <Key android:codes="32" android:keyIcon="@drawable/people" android:keyWidth="50%p" android:isRepeatable="true"/>
         <Key android:codes="46" android:keyLabel="." android:keyWidth="10%p"/>

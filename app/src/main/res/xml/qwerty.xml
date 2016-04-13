@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Keyboard1 xmlns:android="http://schemas.android.com/apk/res/android"
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:keyWidth="20%p"
     android:horizontalGap="0px"
     android:verticalGap="0px"
@@ -15,12 +15,12 @@
         <Key android:codes="55" android:keyLabel="7"/>
         <Key android:codes="56" android:keyLabel="8"/>
         <Key android:codes="57" android:keyLabel="9"/>
-        <Key android:codes="48" android:keyLabel="0" android:keyEdgeFlags="right"/>
+        <Key android:codes="48" android:keyLabel="0" android:keyEdgeFlags="right"/></Row>
 
     <Row>
         <Key android:codes="113" android:keyLabel="q" android:keyEdgeFlags="left"/>
-        <Key android:codes="3244" android:keyLabel="ಬ"/>
-        <Key android:codes="3262" android:keyLabel="ಾ"/>
+        <Key android:codes="119" android:keyLabel="w"/>
+        <Key android:codes="101" android:keyLabel="e"/>
         <Key android:codes="114" android:keyLabel="r"/>
         <Key android:codes="116" android:keyLabel="t"/>
         <Key android:codes="121" android:keyLabel="y"/>
@@ -54,12 +54,12 @@
 
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p"  android:keyEdgeFlags="left"/>
+        <Key android:codes="-199"  android:keyIcon="@drawable/globe" android:keyWidth="10%p"  android:keyEdgeFlags="left"/>
         <Key android:codes="47" android:keyLabel="/" android:keyWidth="10%p" />
         <Key android:codes="46" android:keyLabel="."/>
         <Key android:codes="32" android:keyIcon="@drawable/people" android:keyWidth="40%p" android:isRepeatable="true"/>
         <Key android:codes="63,33,58" android:keyLabel="\? ! :"/>
         <Key android:codes="-4" android:keyIcon="@drawable/done" android:keyWidth="20%p" android:keyEdgeFlags="right"/>
     </Row>
-    </Row>
-</Keyboard1>
+
+</Keyboard>
