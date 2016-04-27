@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:keyWidth="20%p"
+    android:keyWidth="50%p"
     android:horizontalGap="5px"
     android:verticalGap="5px"
-    android:keyHeight="75dp">
+    android:keyHeight="270dp">
 
 
 
     <Row>
-
-        <Key android:codes="-198" android:keyIcon="@drawable/l2" android:isRepeatable="true" />
-        <Key android:codes="-201" android:keyIcon="@drawable/l1" android:isRepeatable="true" />
-
+        <Key android:codes="-198" android:keyIcon="@drawable/l1" android:isRepeatable="true" />
+        <Key android:codes="-201" android:keyIcon="@drawable/l2" android:isRepeatable="true" />
 
     </Row>
 

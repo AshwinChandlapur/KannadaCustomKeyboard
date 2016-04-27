@@ -20,6 +20,7 @@
             android:name=".MyKeyboard"
             android:label="@string/my_keyboard"
             android:permission="android.permission.BIND_INPUT_METHOD">
+            <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY"></uses-permission>
 
             <meta-data android:name="android.view.im"
                 android:resource="@xml/method" />
