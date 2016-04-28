@@ -22,6 +22,7 @@ public class MyKeyboard extends InputMethodService
     private Keyboard keyboard2;
     private Keyboard keyboard3;
     private Keyboard keyboard4;
+    private Keyboard keyboard5;
 
 
     private boolean caps = false;
@@ -104,6 +105,18 @@ public class MyKeyboard extends InputMethodService
             case -202:
                 caps=!caps;
                  keyboard4.setShifted(caps);
+                kv.invalidateAllKeys();
+                break;
+
+            case -203:
+                keyboard5 = new Keyboard(this, R.xml.engnum);
+                kv.setKeyboard(keyboard5);
+                kv.invalidateAllKeys();
+                break;
+
+            case -204:
+                keyboard4 = new Keyboard(this, R.xml.qwerty);
+                kv.setKeyboard(keyboard4);
                 kv.invalidateAllKeys();
                 break;
 

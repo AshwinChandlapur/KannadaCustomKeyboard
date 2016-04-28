@@ -5,17 +5,7 @@
     android:verticalGap="0px"
     android:keyHeight="55dp">
 
-    <Row>
-        <Key android:codes="49" android:keyLabel="1" android:keyEdgeFlags="left"/>
-        <Key android:codes="50" android:keyLabel="2"/>
-        <Key android:codes="51" android:keyLabel="3"/>
-        <Key android:codes="52" android:keyLabel="4"/>
-        <Key android:codes="53" android:keyLabel="5"/>
-        <Key android:codes="54" android:keyLabel="6"/>
-        <Key android:codes="55" android:keyLabel="7"/>
-        <Key android:codes="56" android:keyLabel="8"/>
-        <Key android:codes="57" android:keyLabel="9"/>
-        <Key android:codes="48" android:keyLabel="0" android:keyEdgeFlags="right"/></Row>
+
 
     <Row>
         <Key android:codes="113" android:keyLabel="q" android:keyEdgeFlags="left"/>
@@ -38,8 +28,8 @@
         <Key android:codes="104" android:keyLabel="h"/>
         <Key android:codes="106" android:keyLabel="j"/>
         <Key android:codes="107" android:keyLabel="k"/>
-        <Key android:codes="108" android:keyLabel="l"/>
-        <Key android:codes="35,64" android:keyLabel="\# \@" android:keyEdgeFlags="right"/>
+        <Key android:codes="108" android:keyLabel="l" android:keyEdgeFlags="right"/>
+
     </Row>
     <Row>
         <Key android:codes="-202" android:keyIcon="@drawable/shift" android:onClick="shift" android:keyEdgeFlags="left"/>
@@ -54,11 +44,9 @@
 
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="-199"  android:keyIcon="@drawable/globe" android:keyWidth="10%p"  android:keyEdgeFlags="left"/>
-        <Key android:codes="47" android:keyLabel="/" android:keyWidth="10%p" />
-        <Key android:codes="46" android:keyLabel="."/>
-        <Key android:codes="32" android:keyIcon="@drawable/people1" android:keyWidth="40%p" android:isRepeatable="true"/>
-        <Key android:codes="63,33,58" android:keyLabel="\? ! :"/>
+        <Key android:codes="-203" android:keyLabel="\?123" android:keyEdgeFlags="left"/>
+        <Key android:codes="-199"  android:keyIcon="@drawable/globe" android:keyWidth="10%p" />
+        <Key android:codes="32" android:keyIcon="@drawable/people1" android:keyWidth="50%p" android:isRepeatable="true"/>
         <Key android:codes="-4" android:keyIcon="@drawable/done" android:keyWidth="20%p" android:keyEdgeFlags="right"/>
     </Row>
 
