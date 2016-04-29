@@ -1,4 +1,4 @@
-package com.example.andrei.customkeyboard;
+package my.typekannada.ashwin.customkeyboard;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import my.typekannada.ashwin.customkeyboard.R;
+
+
 
 
 public class MainActivity extends ActionBarActivity {

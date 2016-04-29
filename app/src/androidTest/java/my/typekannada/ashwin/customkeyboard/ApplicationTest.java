@@ -1,4 +1,4 @@
-package com.example.andrei.customkeyboard;
+package my.typekannada.ashwin.customkeyboard;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

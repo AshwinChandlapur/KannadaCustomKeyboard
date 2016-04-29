@@ -1,16 +1,14 @@
-package com.example.andrei.customkeyboard;
+package my.typekannada.ashwin.customkeyboard;
 
 
-import android.app.Activity;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
-import android.os.Bundle;
-import android.provider.UserDictionary;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
+import my.typekannada.ashwin.customkeyboard.R;
 
 
 public class MyKeyboard extends InputMethodService

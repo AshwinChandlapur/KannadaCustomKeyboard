@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.example.andrei.customkeyboard"
+        applicationId "my.example.andrei.customkeyboard"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
