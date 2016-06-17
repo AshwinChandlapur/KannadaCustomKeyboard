@@ -23,7 +23,7 @@
         <Key android:codes="64" android:keyLabel="\@"/>
         <Key android:codes="35" android:keyLabel="#"/>
         <Key android:codes="36" android:keyLabel="$"/>
-        <Key android:codes="37" android:keyLabel="%"  android:horizontalGap="3px"/>
+        <Key android:codes="37" android:keyLabel="%" />
         <Key android:codes="94" android:keyLabel="^"/>
         <Key android:codes="8377" android:keyLabel="₹"/>
         <Key android:codes="42" android:keyLabel="*"/>
@@ -32,7 +32,7 @@
     </Row>
 
     <Row>
-        <Key android:codes="-204" android:keyLabel="ABC" android:keyEdgeFlags="left"/>
+        <Key android:codes="-201" android:keyLabel="ABC" android:keyEdgeFlags="left"/>
         <Key android:codes="39" android:keyLabel="'"/>
         <Key android:codes="58" android:keyLabel=":"/>
        <!-- <Key android:codes="59" android:keyLabel=";"/>-->

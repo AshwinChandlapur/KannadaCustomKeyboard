@@ -93,12 +93,7 @@ public class MyKeyboard extends InputMethodService
                 kv.invalidateAllKeys();
                 break;
 
-            case -200:
-                keyboard3 = new Keyboard(this, R.xml.qwerty2);
-                kv.setKeyboard(keyboard3);
-                kv.setOnKeyboardActionListener(this);
-                kv.invalidateAllKeys();
-                break;
+
 
             case -201:
                 keyboard4 = new Keyboard(this, R.xml.qwerty);
@@ -109,9 +104,9 @@ public class MyKeyboard extends InputMethodService
 
             case -202:
                 caps=!caps;
-                 keyboard4.setShifted(caps);
+                keyboard4.setShifted(caps);
                 //keyboard6 = new Keyboard(this, R.xml.qwertycapital);
-              // kv.setKeyboard(keyboard6);
+             // kv.setKeyboard(keyboard6);
                 kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 break;
@@ -122,19 +117,6 @@ public class MyKeyboard extends InputMethodService
                 kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 break;
-
-            case -204:
-                keyboard4 = new Keyboard(this, R.xml.qwerty);
-                kv.setKeyboard(keyboard4);
-                kv.setOnKeyboardActionListener(this);
-                kv.invalidateAllKeys();
-                break;
-
-
-
-
-
-
 
             default:
                char code = (char) primaryCode;

@@ -34,7 +34,7 @@
         <Key android:codes="64" android:keyLabel="\@"/>
         <Key android:codes="35" android:keyLabel="#"/>
         <Key android:codes="36" android:keyLabel="$"/>
-        <Key android:codes="37" android:keyLabel="%"  android:horizontalGap="3px"/>
+        <Key android:codes="37" android:keyLabel="%"  />
         <Key android:codes="94" android:keyLabel="^"/>
         <Key android:codes="8377" android:keyLabel="₹"/>
         <Key android:codes="42" android:keyLabel="*"/>
