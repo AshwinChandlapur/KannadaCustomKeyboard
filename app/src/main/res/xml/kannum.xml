@@ -43,7 +43,8 @@
     </Row>
 
     <Row>
-        <Key android:codes="-198" android:keyIcon="@drawable/shift"  android:keyEdgeFlags="left"/>
+        <!--<Key android:codes="-198" android:keyIcon="@drawable/shift"  android:keyEdgeFlags="left"/>-->
+        <Key android:codes="-198" android:keyLabel="ಅ"  android:keyEdgeFlags="left"/>
         <Key android:codes="39" android:keyLabel="'"/>
         <Key android:codes="58" android:keyLabel=":"/>
        <!-- <Key android:codes="59" android:keyLabel=";"/>-->
@@ -56,7 +57,7 @@
         <Key android:codes="-5" android:keyIcon="@drawable/backspace"  android:keyWidth="22%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="-199" android:keyIcon="@drawable/globe" android:keyWidth="15%p"  android:keyEdgeFlags="left"/>
+        <Key android:codes="-199" android:keyIcon="@drawable/globe" android:isModifier="true" android:keyWidth="15%p"  android:keyEdgeFlags="left"/>
         <Key android:codes="47" android:keyLabel="/" android:keyWidth="10%p" />
         <Key android:codes="32" android:keyIcon="@drawable/people" android:keyWidth="50%p" android:isRepeatable="true"/>
         <Key android:codes="46" android:keyLabel="." android:keyWidth="10%p"/>

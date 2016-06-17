@@ -32,7 +32,7 @@
 
     </Row>
     <Row>
-        <Key android:codes="-202" android:keyIcon="@drawable/shift" android:onClick="shift" android:keyEdgeFlags="left"/>
+        <Key android:codes="-202" android:keyIcon="@drawable/shift"  android:keyWidth="20%p" android:keyEdgeFlags="left"/>
         <Key android:codes="122" android:keyLabel="z"/>
         <Key android:codes="120" android:keyLabel="x"/>
         <Key android:codes="99" android:keyLabel="c"/>
@@ -43,10 +43,13 @@
         <Key android:codes="-5" android:keyIcon="@drawable/backspace"  android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
 
     </Row>
-    <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="-203" android:keyLabel="\?123" android:keyEdgeFlags="left"/>
-        <Key android:codes="-199"  android:keyIcon="@drawable/globe" android:keyWidth="10%p" />
-        <Key android:codes="32" android:keyIcon="@drawable/people1" android:keyWidth="50%p" android:isRepeatable="true"/>
+    <Row android:rowEdgeFlags="bottom" >
+        <!--<Key android:codes="-199"  android:keyIcon="@drawable/globe" android:keyEdgeFlags="left" android:keyWidth="15%p" />-->
+     <Key android:codes="-203" android:keyLabel="\?123" android:keyEdgeFlags="left" android:keyWidth="10%p"/>
+        <Key android:codes="-199"  android:keyIcon="@drawable/globe" android:isModifier="true" android:keyWidth="15%p" />
+        <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p" android:isRepeatable="true"  />
+        <Key android:codes="32" android:keyIcon="@drawable/people1" android:keyWidth="35%p" android:isRepeatable="true"/>
+        <Key android:codes="46" android:keyLabel="." android:keyWidth="10%p" android:isRepeatable="true"/>
         <Key android:codes="-4" android:keyIcon="@drawable/done" android:keyWidth="20%p" android:keyEdgeFlags="right"/>
     </Row>
 

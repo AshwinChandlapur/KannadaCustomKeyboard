@@ -8,8 +8,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
-import my.typekannada.ashwin.customkeyboard.R;
-
 
 public class MyKeyboard extends InputMethodService
         implements KeyboardView.OnKeyboardActionListener{
@@ -21,6 +19,7 @@ public class MyKeyboard extends InputMethodService
     private Keyboard keyboard3;
     private Keyboard keyboard4;
     private Keyboard keyboard5;
+    private Keyboard keyboard6;
 
 
     private boolean caps = false;
@@ -45,12 +44,15 @@ public class MyKeyboard extends InputMethodService
 
     @Override
     public void onPress(int primaryCode) {
+        if (primaryCode==32){
+            kv.setPreviewEnabled(false);
+        }
 
     }
 
     @Override
     public void onRelease(int primaryCode) {
-
+        kv.setPreviewEnabled(true);
     }
 
     @Override
@@ -65,6 +67,7 @@ public class MyKeyboard extends InputMethodService
             case Keyboard.KEYCODE_SHIFT:
                 keyboard1 = new Keyboard(this, R.xml.kannum);
                 kv.setKeyboard(keyboard1);
+                kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 //caps=!caps;
                   //  keyboard.setShifted(caps);
@@ -78,45 +81,57 @@ public class MyKeyboard extends InputMethodService
 
             case -198:
                 keyboard = new Keyboard(this, R.xml.kankey);//loads l1 keyboard from l1 Numeric Keyboard
-                kv.setKeyboard(keyboard);
+                kv.setKeyboard(keyboard);//keyboard
+                kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 break;
 
             case -199:
                 keyboard2 = new Keyboard(this, R.xml.langcha);//loads Language Change Keypad through which user can change language.
                 kv.setKeyboard(keyboard2);
+                kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 break;
 
             case -200:
                 keyboard3 = new Keyboard(this, R.xml.qwerty2);
                 kv.setKeyboard(keyboard3);
+                kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 break;
 
             case -201:
                 keyboard4 = new Keyboard(this, R.xml.qwerty);
-                kv.setKeyboard(keyboard4);
+                kv.setKeyboard(keyboard4);//keyboard4
+                kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 break;
 
             case -202:
                 caps=!caps;
                  keyboard4.setShifted(caps);
+                //keyboard6 = new Keyboard(this, R.xml.qwertycapital);
+              // kv.setKeyboard(keyboard6);
+                kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 break;
 
             case -203:
                 keyboard5 = new Keyboard(this, R.xml.engnum);
                 kv.setKeyboard(keyboard5);
+                kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 break;
 
             case -204:
                 keyboard4 = new Keyboard(this, R.xml.qwerty);
                 kv.setKeyboard(keyboard4);
+                kv.setOnKeyboardActionListener(this);
                 kv.invalidateAllKeys();
                 break;
+
+
+
 
 
 
@@ -154,6 +169,7 @@ public class MyKeyboard extends InputMethodService
     public void swipeUp() {
 
     }
+
 
 }
 
