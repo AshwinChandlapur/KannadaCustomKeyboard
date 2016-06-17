@@ -3,13 +3,13 @@
     android:keyWidth="50%p"
     android:horizontalGap="5px"
     android:verticalGap="5px"
-    android:keyHeight="270dp">
+    android:keyHeight="255dp">
 
 
 
     <Row>
-        <Key android:codes="-198" android:keyIcon="@drawable/l1" android:isRepeatable="true" />
-        <Key android:codes="-201" android:keyIcon="@drawable/l2" android:isRepeatable="true" />
+        <Key android:codes="-198" android:keyIcon="@drawable/l1" />
+        <Key android:codes="-201" android:keyIcon="@drawable/l2" />
 
     </Row>
 

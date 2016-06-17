@@ -8,6 +8,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
+import java.security.Key;
+
 
 public class MyKeyboard extends InputMethodService
         implements KeyboardView.OnKeyboardActionListener{
@@ -16,10 +18,9 @@ public class MyKeyboard extends InputMethodService
     private Keyboard keyboard;
     private Keyboard keyboard1;
     private Keyboard keyboard2;
-    private Keyboard keyboard3;
     private Keyboard keyboard4;
     private Keyboard keyboard5;
-    private Keyboard keyboard6;
+
 
 
     private boolean caps = false;
@@ -28,6 +29,10 @@ public class MyKeyboard extends InputMethodService
     public View onCreateInputView() {
         kv = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
         keyboard = new Keyboard(this, R.xml.kankey);
+        keyboard1= new Keyboard(this,R.xml.kannum);
+        keyboard2= new Keyboard(this,R.xml.langcha);
+        keyboard4= new Keyboard(this,R.xml.qwerty);
+        keyboard5= new Keyboard(this,R.xml.engnum);
         kv.setKeyboard(keyboard);
         kv.setOnKeyboardActionListener(this);
         return kv;
@@ -44,15 +49,20 @@ public class MyKeyboard extends InputMethodService
 
     @Override
     public void onPress(int primaryCode) {
-        if (primaryCode==32){
+        if (primaryCode==32 || primaryCode==-5 || primaryCode==-4 || primaryCode==-201 || primaryCode==-198  ){
             kv.setPreviewEnabled(false);
         }
+        else{
+            kv.setPreviewEnabled(true);
+        }
+
 
     }
 
     @Override
     public void onRelease(int primaryCode) {
-        kv.setPreviewEnabled(true);
+
+
     }
 
     @Override
@@ -71,7 +81,7 @@ public class MyKeyboard extends InputMethodService
                 kv.invalidateAllKeys();
                 //caps=!caps;
                   //  keyboard.setShifted(caps);
-                   //kv.invalidateAllKeys();
+                //kv.invalidateAllKeys();
                 break;
             case Keyboard.KEYCODE_DONE:
                 ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));

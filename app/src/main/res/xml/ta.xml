@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:keyWidth="22%p"
-    android:horizontalGap="0px"
-    android:verticalGap="0px"
     android:keyHeight="43dp">
 
 
 
 
     <Row>
-        <Key android:codes="3231" android:keyLabel="ಟ್"  android:keyEdgeFlags="left"/>
-        <Key android:codes="5" android:keyLabel="ಟಾ" android:keyOutputText="ಟಾ"/>
-        <Key android:codes="3228,3229" android:keyLabel="ಟಿ"/>
-        <Key android:codes="3229" android:keyLabel="ಟೀ" />
-        <Key android:codes="3230" android:keyLabel="ಟು" />
-        <Key android:codes="3231" android:keyLabel="ಟೂ" android:keyEdgeFlags="right"/>
+        <Key android:codes="3277" android:keyLabel="ಟ್"  android:keyEdgeFlags="left"/>
+        <Key android:codes="3262;" android:keyLabel="ಟಾ" />
+        <Key android:codes="3263" android:keyLabel="ಟಿ"/>
+        <Key android:codes="3264" android:keyLabel="ಟೀ" />
+        <Key android:codes="3265" android:keyLabel="ಟು" />
+        <Key android:codes="3266" android:keyLabel="ಟೂ" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:codes="3232" android:keyLabel="ಟೃ" android:keyEdgeFlags="left"/>
-        <Key android:codes="3233" android:keyLabel="ಟೆ"/>
-        <Key android:codes="3234" android:keyLabel="ಟೇ"/>
-        <Key android:codes="3234" android:keyLabel="ಟೈ"/>
-        <Key android:codes="3234" android:keyLabel="ಟೊ"/>
-        <Key android:codes="3234" android:keyLabel="ಟೋ"/>
-        <Key android:codes="3235" android:keyLabel="ಟೌ" android:keyEdgeFlags="right"/>
+        <Key android:codes="3267" android:keyLabel="ಟೃ" android:keyEdgeFlags="left"/>
+        <Key android:codes="3270" android:keyLabel="ಟೆ"/>
+        <Key android:codes="3271" android:keyLabel="ಟೇ"/>
+        <Key android:codes="3272" android:keyLabel="ಟೈ"/>
+        <Key android:codes="3274" android:keyLabel="ಟೊ"/>
+        <Key android:codes="3275" android:keyLabel="ಟೋ"/>
+        <Key android:codes="3276" android:keyLabel="ಟೌ" android:keyEdgeFlags="right"/>
     </Row>
 
 
