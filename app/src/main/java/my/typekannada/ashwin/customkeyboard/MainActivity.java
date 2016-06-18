@@ -13,6 +13,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.pushbots.push.Pushbots;
 
+
 import my.typekannada.ashwin.customkeyboard.R;
 
 
@@ -24,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Pushbots.sharedInstance().init(this);
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
