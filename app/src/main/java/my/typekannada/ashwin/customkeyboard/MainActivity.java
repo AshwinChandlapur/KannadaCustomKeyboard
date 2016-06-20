@@ -20,6 +20,8 @@ import my.typekannada.ashwin.customkeyboard.R;
 
 
 public class MainActivity extends ActionBarActivity {
+    InterstitialAd mInterstitialAd;
+    private InterstitialAd interstitial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +29,30 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         Pushbots.sharedInstance().init(this);
 
+//Interstitial Ad Space
+        AdRequest adRequests = new AdRequest.Builder().build();
+
+        // Prepare the Interstitial Ad
+        interstitial = new InterstitialAd(MainActivity.this);
+// Insert the Ad Unit ID
+        interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
+
+        interstitial.loadAd(adRequests);
+// Prepare an Interstitial Ad Listener
+        interstitial.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+// Call displayInterstitial() function
+                displayInterstitial();
+            }
+        });
+        // Interstetial ad Finished
+
+        //Banner Ad Space
+
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        //Banner ad finished
 
     }
 
@@ -64,4 +87,10 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
+    public void displayInterstitial() {
+// If Ads are loaded, show Interstitial else show nothing.
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
+    }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pushbots Application ID  -->
+    <string name="pb_appid">5764dc364a9efa70a88b4568</string>
+    <!-- Project Number in Google console -->
+    <string name="pb_senderid">423007585998</string>
+    <!-- Pushbots Log Level  log Tag "PB2" -->
+    <string name="pb_logLevel">DEBUG</string>
+</resources>
