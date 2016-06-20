@@ -49,7 +49,7 @@ public class MyKeyboard extends InputMethodService
 
     @Override
     public void onPress(int primaryCode) {
-        if (primaryCode==32 || primaryCode==-5 || primaryCode==-4 || primaryCode==-201 || primaryCode==-198  ){
+        if (primaryCode==32 || primaryCode==-5 || primaryCode==-4 || primaryCode==-201 || primaryCode==-198 || primaryCode==-203 ){
             kv.setPreviewEnabled(false);
         }
         else{
@@ -61,7 +61,6 @@ public class MyKeyboard extends InputMethodService
 
     @Override
     public void onRelease(int primaryCode) {
-
 
     }
 

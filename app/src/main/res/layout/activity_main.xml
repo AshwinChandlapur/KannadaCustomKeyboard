@@ -38,10 +38,10 @@
         android:text="Set Kannada Keyboard"
         android:id="@+id/KanKey"
         android:onClick="langset"
-        android:paddingBottom="20dp"
         android:clickable="true"
         android:layout_below="@+id/textView6"
         android:layout_centerHorizontal="true"
+        android:textAlignment="gravity"
         android:layout_margin="10dp" />
 
     <TextView
@@ -90,10 +90,10 @@
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id">
+        ads:adUnitId="@string/banner_ad_unit_id"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
     </com.google.android.gms.ads.AdView>
 
     <TextView

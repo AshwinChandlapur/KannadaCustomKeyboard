@@ -5,7 +5,7 @@
 
 
     <Row>
-        <Key android:codes="3205,3277" android:keyLabel="ಅ"  android:popupKeyboard="@xml/taa"  android:keyEdgeFlags="left"/>
+        <Key android:codes="3205,3277" android:keyLabel="ಅ"   android:keyEdgeFlags="left"/>
         <Key android:codes="3206,3262" android:keyLabel="ಆ"/>
         <Key android:codes="3207,3263" android:keyLabel="ಇ"/>
         <Key android:codes="3208,3264" android:keyLabel="ಈ"/>
@@ -23,7 +23,7 @@
         <Key android:codes="3220,3276" android:keyLabel="ಔ"/>
         <Key android:codes="3202" android:keyLabel="ಂ"/>
         <Key android:codes="3203" android:keyLabel="ಃ"/>
-        <Key android:codes="3221" android:keyLabel="ಕ"/>
+        <Key android:codes="3221" android:keyLabel="ಕ" />
         <Key android:codes="3222" android:keyLabel="ಖ"/>
         <Key android:codes="3223" android:keyLabel="ಗ"/>
         <Key android:codes="3224" android:keyLabel="ಘ"/>
@@ -35,7 +35,7 @@
         <Key android:codes="3228" android:keyLabel="ಜ"/>
         <Key android:codes="3229" android:keyLabel="ಝ" />
         <Key android:codes="3230" android:keyLabel="ಞ" />
-        <Key android:codes="3231" android:keyLabel="ಟ"  android:popupKeyboard="@xml/ta"/>
+        <Key android:codes="3231" android:keyLabel="ಟ"  />
         <Key android:codes="3232" android:keyLabel="ಠ"/>
         <Key android:codes="3233" android:keyLabel="ಡ"/>
         <Key android:codes="3234" android:keyLabel="ಢ"/>

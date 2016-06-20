@@ -43,7 +43,7 @@
     </Row>
     <Row android:rowEdgeFlags="bottom" >
         <!--<Key android:codes="-199"  android:keyIcon="@drawable/globe" android:keyEdgeFlags="left" android:keyWidth="15%p" />-->
-     <Key android:codes="-203" android:keyLabel="\?123" android:keyEdgeFlags="left" android:keyWidth="10%p"/>
+     <Key android:codes="-203" android:keyLabel="\?123"  android:keyEdgeFlags="left" android:keyWidth="15%p"/>
         <Key android:codes="-199"  android:keyIcon="@drawable/globe" android:isModifier="true" android:keyWidth="15%p" />
         <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p" android:isRepeatable="true"  />
         <Key android:codes="32" android:keyIcon="@drawable/people1" android:keyWidth="35%p" android:isRepeatable="true"/>
