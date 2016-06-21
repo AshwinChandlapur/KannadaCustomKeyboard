@@ -48,6 +48,6 @@
         <Key android:codes="46" android:keyLabel="." android:keyWidth="10%p"/>
         <Key android:codes="32" android:keyIcon="@drawable/people1"  android:keyWidth="42%p" android:isRepeatable="true"/>
         <Key android:codes="47" android:keyLabel="/" android:keyWidth="10%p" />
-        <Key android:codes="-4" android:keyIcon="@drawable/done" android:keyWidth="20%p" android:keyEdgeFlags="right"/>
+        <Key android:codes="-4" android:keyIcon="@drawable/done" android:isRepeatable="true" android:keyWidth="20%p" android:keyEdgeFlags="right"/>
     </Row>
 </Keyboard>

@@ -1,6 +1,7 @@
 package my.typekannada.ashwin.customkeyboard;
 
 import android.content.Intent;
+import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -81,7 +82,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void langset(View view) {
-        Intent j = new Intent(Intent.ACTION_MAIN);
+        Intent j = new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS);
         j.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
         startActivity(j);
 
