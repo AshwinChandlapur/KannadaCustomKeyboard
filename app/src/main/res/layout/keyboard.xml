@@ -6,7 +6,4 @@
     android:keyPreviewLayout="@layout/preview"
     android:keyBackground="@drawable/backs">
 
-
-
-
 </android.inputmethodservice.KeyboardView>

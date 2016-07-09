@@ -9,6 +9,6 @@
         android:label="@string/sybtype_en_cn"
         android:imeSubtypeLocale="kn"
         android:imeSubtypeMode="keyboard"
-        android:imeSubtypeExtraValue="KeyboardLayoutSet=english"/>
+        android:imeSubtypeExtraValue="KeyboardLayoutSet=kannada"/>
 
 </input-method>

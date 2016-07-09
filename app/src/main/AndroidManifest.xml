@@ -72,7 +72,6 @@
 
         <service android:name="com.pushbots.push.GCMIntentService" />
 
-
     </application>
 
 </manifest>
