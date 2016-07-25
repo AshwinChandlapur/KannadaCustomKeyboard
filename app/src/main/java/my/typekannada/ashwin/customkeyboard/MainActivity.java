@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.pushbots.push.Pushbots;
 
 
@@ -24,14 +28,14 @@ public class MainActivity extends ActionBarActivity {
     InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Pushbots.sharedInstance().init(this);
 
-//Interstitial Ad Space
-       AdRequest adRequests = new AdRequest.Builder().build();
+        //Interstitial Ad Space
+        AdRequest adRequests = new AdRequest.Builder().build();
 
         // Prepare the Interstitial Ad
         interstitial = new InterstitialAd(MainActivity.this);
@@ -47,6 +51,12 @@ public class MainActivity extends ActionBarActivity {
         });
         // Interstetial ad Finished
 
+        Pushbots.sharedInstance().init(this);
+
+
+
+
+
         //Banner Ad Space
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
@@ -57,7 +67,13 @@ public class MainActivity extends ActionBarActivity {
         //Banner ad finished
 
     }
+    public void displayInterstitial() {
+// If Ads are loaded, show Interstitial else show nothing.
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
 
+    }
 
 
     @Override
@@ -89,10 +105,5 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    public void displayInterstitial() {
-// If Ads are loaded, show Interstitial else show nothing.
-        if (interstitial.isLoaded()) {
-            interstitial.show();
-        }
-    }
+
 }

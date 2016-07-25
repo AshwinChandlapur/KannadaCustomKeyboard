@@ -39,30 +39,20 @@
         android:id="@+id/KanKey"
         android:onClick="langset"
         android:clickable="true"
+        android:textColor="#ffffff"
         android:layout_below="@+id/textView6"
         android:layout_centerHorizontal="true"
         android:textAlignment="gravity"
         android:layout_margin="10dp" />
-
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="⁠⁠⁠ಕಸ್ತೂರಿ->ಕ  ಸ+್+ತ+⁠⁠⁠ಊ  ರ+ಿ"
-        android:id="@+id/textView3"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="To get ಿ, double tap ⁠⁠⁠ಇ"
-        android:id="@+id/textView4"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true" />
+        android:layout_below="@+id/KanKey"
+        android:layout_above="@+id/adView">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,19 +75,38 @@
         android:layout_alignParentStart="true" />
 
 
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
-    </com.google.android.gms.ads.AdView>
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="⁠⁠⁠ಕಸ್ತೂರಿ->ಕ  ಸ+್+ತ+⁠⁠⁠ಊ  ರ+ಿ"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="14dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="To get ಿ, double tap ⁠⁠⁠ಇ"
+        android:id="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true" />
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="ಟೈಪ್-> ಟ+ೈ  ಪ+್"
+        android:id="@+id/textView8"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,33 +121,92 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="ಟೈಪ್-> ಟ+ೈ  ಪ+್"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="ಕರ್ನಾಟಕ-> ಕ  ರ+್+ನ+ಾ   ಟ  ಕ "
         android:id="@+id/textView9"
         android:layout_below="@+id/textView7"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="To get ್, double tap ಅ, To get ಾ  double tap ಆ"
+        android:text="To get ್  double tap ಅ, To get ಾ  double tap ಆ"
         android:id="@+id/textView10"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView9"
         android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="ವ್ಯಕ್ತಿ-> ವ+್+ಯ  ಕ+್+ತ+ ಿ "
+                android:id="@+id/textView12"
+                android:layout_below="@+id/textView10"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="22dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="To get ್  double tap ಅ, To get  ಿ double tap ಇ"
+                android:id="@+id/textView13"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView12"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="ದಿಗ್ಭ್ರಮೆ-> ದ+ ಿ   ಗ+್+ಬ+್+ಮ  ಮ+ೆ"
+                android:id="@+id/textView14"
+                android:layout_below="@+id/textView13"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="To get ್  double tap ಅ, To get ೆ  double tap ಎ"
+                android:id="@+id/textView15"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView14"
+                android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="bold"
+        android:text="\t\t\t\t\t\t\t\t\tRequest To our Users
+        \nAll the Revenue generated through ads will be solely\nused for Development of Kannada Language Related Applications.
+        \n\t\t\t\t\t\t\t\t\t\tKeep Supporting:)"
+        android:id="@+id/textView11"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView9"
+        android:layout_alignParentLeft="true"
+        android:paddingTop="20dp">
+    </TextView>
+
+        </LinearLayout></ScrollView>
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+    </com.google.android.gms.ads.AdView>
 
 
 </RelativeLayout>

@@ -9,9 +9,10 @@
     <string name="sybtype_en_US">Kannada Keyboard</string>
     <string name="sybtype_en_cn">Keyboard of century</string>
     <string name="banner_ad_unit_id">ca-app-pub-1924436259631090/6298664761</string>
+    <string name="AD_UNIT_ID">ca-app-pub-1924436259631090/8322489961</string>
     <string name="admob_interstitial_id">ca-app-pub-1924436259631090/1004057164</string>
-
-
+    <string name="amper"><![CDATA[&]]></string>
+    <string name="apos"><![CDATA[\"]]></string>
 
 
 </resources>
