@@ -186,6 +186,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="bold"
+        android:textAlignment="center"
         android:text="\t\t\t\t\t\t\t\t\tRequest To our Users
         \nAll the Revenue generated through ads will be solely\nused for Development of Kannada Language Related Applications.
         \n\t\t\t\t\t\t\t\t\t\tKeep Supporting:)"

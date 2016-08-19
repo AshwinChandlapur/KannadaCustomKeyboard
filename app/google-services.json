@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1040549393719",
+    "firebase_url": "https://admob-app-id-3345198369-9dceb.firebaseio.com",
+    "project_id": "admob-app-id-3345198369-9dceb",
+    "storage_bucket": "admob-app-id-3345198369-9dceb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040549393719:android:34cffcfc455a501b",
+        "android_client_info": {
+          "package_name": "my.example.andrei.customkeyboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040549393719-c5q8okvhgcqiqog9vatoc86jjlu35mq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaafpuXib_KBR9Q0WUmd0017TdkEZrWxI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
