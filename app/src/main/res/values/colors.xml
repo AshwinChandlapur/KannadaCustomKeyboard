@@ -2,6 +2,12 @@
 <resources>
     <color name="colorPrimary">#212121</color>
     <color name="colorPrimaryDark">#212121</color>
-    <color name="colorAccent">#ffff8d</color>
+    <color name="colorAccent">#3498db</color>
 
+
+    <color name="dark_grey">#DFDFDF</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="orangeText">#1abc9c</color>
+    <color name="defTextColor">#000000</color>
+    <color name="colorBlue">#3949ab</color>
 </resources>

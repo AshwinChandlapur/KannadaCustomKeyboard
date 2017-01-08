@@ -69,9 +69,12 @@
             </intent-filter>
         </receiver>
         <receiver android:name="com.pushbots.push.DefaultPushHandler" />
+        <!-- <receiver android:name=".NotifHandler" /> -->
 
         <service android:name="com.pushbots.push.GCMIntentService" />
 
+        <activity android:name=".NotifHandler"></activity>
+        <activity android:name=".NotifTray"></activity>
     </application>
 
 </manifest>

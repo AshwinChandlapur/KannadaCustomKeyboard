@@ -1,7 +1,13 @@
 package my.typekannada.ashwin.customkeyboard;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.provider.Settings;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,12 +33,42 @@ import my.typekannada.ashwin.customkeyboard.R;
 public class MainActivity extends ActionBarActivity {
     InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
-
+    final String PREFS_NAME = "MyPrefsFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Code For First TIme Opening The App.
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        if (settings.getBoolean("my_first_time", true)) {
+            //the app is being launched for first time, do something
+            //Notification Tray as Soon as User Installs
+            ///Test Notification Code
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+            mBuilder.setSmallIcon(R.mipmap.ic_launcher);
+            mBuilder.setContentTitle("Mysore Sandal Soap ");
+            mBuilder.setContentText("Click here to Read more!");
+            mBuilder.setAutoCancel(true);
+            Intent resultIntent = new Intent(this, NotifTray.class);
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+            stackBuilder.addParentStack(NotifHandler.class);
+
+            // Adds the Intent that starts the Activity to the top of the stack
+            stackBuilder.addNextIntent(resultIntent);
+            PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+            mBuilder.setContentIntent(resultPendingIntent);
+            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+            // notificationID allows you to update the notification later on.
+            mNotificationManager.notify(0, mBuilder.build());
+            ///Test Notification code ends here
+            //Notification Tray Code Ends Here
+            // record the fact that the app has been started at least once
+            settings.edit().putBoolean("my_first_time", false).commit();
+        }
+        //Code for First TIme opening the App Ends Here
 
         //Interstitial Ad Space
         AdRequest adRequests = new AdRequest.Builder().build();
@@ -51,18 +87,15 @@ public class MainActivity extends ActionBarActivity {
         });
         // Interstetial ad Finished
 
+        //Pushbots.sharedInstance().setCustomHandler(CustomHandler.class);
         Pushbots.sharedInstance().init(this);
-
-
-
-
+       // Pushbots.sharedInstance().debug(true);
 
         //Banner Ad Space
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
 
         //Banner ad finished
 
@@ -92,8 +125,8 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-           // Intent k = new Intent(MainActivity.this,developer.class);
-            //startActivity(k);
+          //  Intent k = new Intent(MainActivity.this,deeplink.class);
+         //   startActivity(k);
             return true;
         }
 
@@ -101,6 +134,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void langset(View view) {
+
+       // Intent k = new Intent(MainActivity.this,NotifHandler.class);
+         //startActivity(k);
         Intent j = new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS);
         j.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
         startActivity(j);

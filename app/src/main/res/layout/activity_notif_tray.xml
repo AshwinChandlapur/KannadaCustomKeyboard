@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="my.typekannada.ashwin.customkeyboard.NotifTray">
+
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/notiftrayimg"
+        android:background="@null"
+        android:paddingTop="10dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:id="@+id/textss"
+        android:text="An advertisement for Mysore Sandal Soap in English magazine Justice published in Madras Presidency (August 30, 1937)."
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Mysore Sandal Soap is the only soap in the world made from 100% pure sandalwood oil. The soap has been manufactured since 1916. Sir M Vishveshwariah played a major role in setting up the factory. The factory was started as there was excessive sandalwood reserves that Mysore Kingdom had which could not be exported to Europe because of the First World War."
+        android:id="@+id/textView18"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/textss"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="ಇದೆ ತರಹ ಅಪರೂಪದ ಮಾಹಿತಿಗಳನ್ನು ಪ್ರತಿದಿನ 8ಕ್ಕೆ ಕಳಿಸುತ್ತೇವೆ. ಕನ್ನಡತನ ಮೂಡಿಸುವುದರಲ್ಲಿ ನಮ್ಮದೊಂದು ಚಿಕ್ಕ ಪ್ರಯತ್ನ."
+        android:gravity="center"
+        android:id="@+id/textView16"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/textView18"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+</RelativeLayout>

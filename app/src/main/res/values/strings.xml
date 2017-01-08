@@ -15,4 +15,42 @@
     <string name="apos"><![CDATA[\"]]></string>
 
 
+    <string name="rateus">Rate Us</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_splasher">SplasherActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="place">Place</string>
+    <string name="description">Description</string>
+    <string name="location">Location</string>
+    <string name="season">Best Season</string>
+    <string name="nearby">Nearby Places</string>
+    <string name="transport">Transport</string>
+    <string name="additional">Additional Info</string>
+    <string name="comments">Leave your experience here</string>
+    <string name="view_on_maps">VIEW ON MAPS</string>
+    <string name="loading">Loading</string>
+
+    <string-array name="category">
+        <item>- -</item>
+        <item>Temples</item>
+        <item>Hill Stations</item>
+        <item>Waterfalls</item>
+        <item>Dams</item>
+        <item>Treking places</item>
+        <item>Beaches</item>
+    </string-array>
+    <string name="title_activity_my_location">MyLocation</string>
+    <string name="title_activity_test">test</string>
+    <string name="title_activity_news">newsActivity</string>
+
+
 </resources>
