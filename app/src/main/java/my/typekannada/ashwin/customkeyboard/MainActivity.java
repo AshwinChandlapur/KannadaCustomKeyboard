@@ -1,10 +1,12 @@
 package my.typekannada.ashwin.customkeyboard;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -34,41 +36,57 @@ public class MainActivity extends ActionBarActivity {
     InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
     final String PREFS_NAME = "MyPrefsFile";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Code For First TIme Opening The App.
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        if (settings.getBoolean("my_first_time", true)) {
-            //the app is being launched for first time, do something
-            //Notification Tray as Soon as User Installs
-            ///Test Notification Code
-            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-            mBuilder.setSmallIcon(R.mipmap.ic_launcher);
-            mBuilder.setContentTitle("Mysore Sandal Soap ");
-            mBuilder.setContentText("Click here to Read more!");
-            mBuilder.setAutoCancel(true);
-            Intent resultIntent = new Intent(this, NotifTray.class);
-            TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-            stackBuilder.addParentStack(NotifHandler.class);
 
-            // Adds the Intent that starts the Activity to the top of the stack
-            stackBuilder.addNextIntent(resultIntent);
-            PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-            mBuilder.setContentIntent(resultPendingIntent);
-            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-            // notificationID allows you to update the notification later on.
-            mNotificationManager.notify(0, mBuilder.build());
-            ///Test Notification code ends here
-            //Notification Tray Code Ends Here
-            // record the fact that the app has been started at least once
-            settings.edit().putBoolean("my_first_time", false).commit();
-        }
-        //Code for First TIme opening the App Ends Here
+
+
+
+
+
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//Code For First TIme Opening The App.
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                if (settings.getBoolean("my_first_time", true)) {
+                    //the app is being launched for first time, do something
+                    //Notification Tray as Soon as User Installs
+                    ///Test Notification Code
+                    NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext());
+                    mBuilder.setSmallIcon(R.mipmap.ic_launcher);
+                    mBuilder.setContentTitle("Mysore Sandal Soap ");
+                    mBuilder.setContentText("Click here to Read more!");
+                    mBuilder.setAutoCancel(true);
+                    Intent resultIntent = new Intent(getApplicationContext(), NotifTray.class);
+                    TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
+                    stackBuilder.addParentStack(NotifHandler.class);
+
+
+                    // Adds the Intent that starts the Activity to the top of the stack
+                    stackBuilder.addNextIntent(resultIntent);
+                    PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+                    mBuilder.setContentIntent(resultPendingIntent);
+                    NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+                    // notificationID allows you to update the notification later on.
+                    mNotificationManager.notify(0, mBuilder.build());
+                    ///Test Notification code ends here
+                    //Notification Tray Code Ends Here
+                    // record the fact that the app has been started at least once
+                    settings.edit().putBoolean("my_first_time", false).commit();
+                }
+                //Code for First TIme opening the App Ends Here
+            }
+        }, 30000);
+
+
 
         //Interstitial Ad Space
         AdRequest adRequests = new AdRequest.Builder().build();
