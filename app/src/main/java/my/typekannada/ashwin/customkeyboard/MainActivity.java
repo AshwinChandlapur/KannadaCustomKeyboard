@@ -64,6 +64,7 @@ public class MainActivity extends ActionBarActivity {
                     mBuilder.setContentTitle("Mysore Sandal Soap ");
                     mBuilder.setContentText("Click here to Read more!");
                     mBuilder.setAutoCancel(true);
+                    mBuilder.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
                     Intent resultIntent = new Intent(getApplicationContext(), NotifTray.class);
                     TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
                     stackBuilder.addParentStack(NotifHandler.class);

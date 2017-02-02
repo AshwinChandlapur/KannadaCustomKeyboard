@@ -111,9 +111,10 @@ public class NotifHandler extends AppCompatActivity {
          ) {
             TextView message = (TextView) findViewById(R.id.message);
             message.setTypeface(myFont);
-            // TextView imgUrl = (TextView) findViewById(R.id.imgUrl);
-            // ImageView imgView=(ImageView)findViewById(R.id.imgView);
             message.setText(extras.getString("bigText"));
+            ImageView imgView=(ImageView)findViewById(R.id.imgView);
+            String sr= extras.getString("imgUrl");
+            Picasso.with(this).load(sr).into(imgView);
 
             //imgUrl.setText(extras.getString("imgUrl"));
             // Picasso.with(this).load(String.valueOf(imgUrl)).into(imgView);}

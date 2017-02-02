@@ -17,15 +17,29 @@
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
         android:id="@+id/heading"/>
+
+
+   <!-- <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scroll"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
     <TextView
         android:text="message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/message"
         android:textSize="15sp"
-        android:layout_below="@+id/heading"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+        </LinearLayout>
+    </ScrollView>-->
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -37,5 +51,28 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgView"
+        android:layout_below="@+id/heading"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"/>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgView"
+        android:layout_above="@+id/feedback">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/message"
+                android:text="message"
+                />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
