@@ -8,8 +8,8 @@ android {
         applicationId "my.example.andrei.customkeyboard"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 10
-        versionName "3.21"
+        versionCode 11
+        versionName "3.3"
     }
     buildTypes {
         release {
