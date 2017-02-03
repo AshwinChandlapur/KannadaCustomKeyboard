@@ -66,7 +66,7 @@ public class NotifHandler extends AppCompatActivity {
 //interstital finished
                 //Do something after 100ms
             }
-        }, 6789);
+        }, 7890);
         final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog(this)
                 .setIcon(R.mipmap.ic_launcher)
                 .withDialogAnimation(true)

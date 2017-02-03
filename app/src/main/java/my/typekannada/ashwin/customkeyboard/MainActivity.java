@@ -85,7 +85,7 @@ public class MainActivity extends ActionBarActivity {
                 }
                 //Code for First TIme opening the App Ends Here
             }
-        }, 30000);
+        }, 45000);
 
 
 
