@@ -42,13 +42,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
-
-
-
-
-
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -85,7 +78,7 @@ public class MainActivity extends ActionBarActivity {
                 }
                 //Code for First TIme opening the App Ends Here
             }
-        }, 45000);
+        }, 190000);
 
 
 

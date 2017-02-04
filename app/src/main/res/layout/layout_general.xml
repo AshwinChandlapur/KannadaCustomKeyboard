@@ -58,7 +58,11 @@
         android:layout_below="@+id/heading"
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
-        android:paddingTop="7px"/>
+        android:paddingTop="7px"
+        android:minWidth="700dp"
+        android:minHeight="180dp"
+        android:maxWidth="700dp"
+        android:maxHeight="180dp"/>
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/message"
                 android:text="message"
+                android:textAlignment="center"
                 />
         </LinearLayout>
     </ScrollView>

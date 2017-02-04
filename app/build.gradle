@@ -8,12 +8,12 @@ android {
         applicationId "my.example.andrei.customkeyboard"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 11
-        versionName "3.3"
+        versionCode 12
+        versionName "3.31"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

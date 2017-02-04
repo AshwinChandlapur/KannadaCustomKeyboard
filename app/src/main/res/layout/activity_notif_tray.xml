@@ -18,7 +18,7 @@
         android:id="@+id/imageView"
         android:src="@drawable/notiftrayimg"
         android:background="@null"
-        android:paddingTop="10dp"
+        android:paddingTop="3dp"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -36,7 +36,7 @@
         android:text="Mysore Sandal Soap is the only soap in the world made from 100% pure sandalwood oil. The soap has been manufactured since 1916. Sir M Vishveshwariah played a major role in setting up the factory. The factory was started as there was excessive sandalwood reserves that Mysore Kingdom had which could not be exported to Europe because of the First World War."
         android:id="@+id/textView18"
         android:gravity="center"
-        android:paddingTop="10dp"
+        android:paddingTop="5dp"
         android:layout_below="@+id/textss"
         android:layout_centerHorizontal="true" />
 
@@ -47,11 +47,21 @@
         android:text="ಇದೆ ತರಹ ಅಪರೂಪದ ಮಾಹಿತಿಗಳನ್ನು ಪ್ರತಿದಿನ 8ಕ್ಕೆ ಕಳಿಸುತ್ತೇವೆ. ಕನ್ನಡತನ ಮೂಡಿಸುವುದರಲ್ಲಿ ನಮ್ಮದೊಂದು ಚಿಕ್ಕ ಪ್ರಯತ್ನ."
         android:gravity="center"
         android:id="@+id/textView16"
-        android:paddingTop="10dp"
+        android:paddingTop="5dp"
         android:layout_below="@+id/textView18"
         android:layout_centerHorizontal="true" />
 
-
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Feedback"
+        android:textColor="#ffffff"
+        android:id="@+id/feedback"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="15dp"/>
 
 
 </RelativeLayout>
