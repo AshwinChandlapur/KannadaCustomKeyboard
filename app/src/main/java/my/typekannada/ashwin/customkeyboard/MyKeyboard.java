@@ -5,8 +5,10 @@ import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
+import android.widget.EditText;
 
 import java.security.Key;
 
@@ -27,6 +29,9 @@ public class MyKeyboard extends InputMethodService
 
     @Override
     public View onCreateInputView() {
+
+
+
         kv = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
         keyboard = new Keyboard(this, R.xml.kankey);
         keyboard1= new Keyboard(this,R.xml.kannum);

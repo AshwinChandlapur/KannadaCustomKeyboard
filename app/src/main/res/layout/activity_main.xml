@@ -187,11 +187,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="bold"
-        android:textAlignment="center"
-        android:text="\t\t\t\t\t\t\t\t\tRequest To our Users
-        \nAll the Revenue generated through ads will be solely\nused for Development of Kannada Language Related Applications.
-        \n\t\t\t\t\t\t\t\t\t\tKeep Supporting:)"
+        android:text="ಬಳಕೆದಾರರಲ್ಲಿ ಮನವಿ: ಜಾಹೀರಾತುಗಳ ಮೂಲಕ ಬರುವ ಎಲ್ಲ ಆದಾಯವನ್ನೂ ಕೇವಲ ಕನ್ನಡ ಭಾಷೆ ಸಂಬಂಧಿಸಿದ ಅಪ್ಲಿಕೇಶನ್ ಅಭಿವೃದ್ಧಿಗೆ ಬಳಸಲಾಗುತ್ತದೆ."
         android:id="@+id/textView11"
+        android:textAlignment="center"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView9"
         android:layout_alignParentLeft="true"

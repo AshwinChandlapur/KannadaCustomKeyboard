@@ -78,7 +78,7 @@ public class MainActivity extends ActionBarActivity {
                 }
                 //Code for First TIme opening the App Ends Here
             }
-        }, 190000);
+        }, 19000);
 
 
 
@@ -117,7 +117,6 @@ public class MainActivity extends ActionBarActivity {
         if (interstitial.isLoaded()) {
             interstitial.show();
         }
-
     }
 
 

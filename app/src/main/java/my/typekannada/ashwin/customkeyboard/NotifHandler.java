@@ -24,6 +24,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 
 
 public class NotifHandler extends AppCompatActivity {
@@ -104,7 +105,10 @@ public class NotifHandler extends AppCompatActivity {
                 dialogHeader_1.show();
             }
         });
-
+        /*String srs= extras.getString("message");
+        File sdCardDirectory = new File("/sdcard/TypeKannada/");
+        sdCardDirectory.mkdirs();
+        File image = new File(sdCardDirectory, srs);*/
         // extras.getString("imgUrl");
         if (null != extras && getIntent().getExtras().containsKey("message") || getIntent().getExtras().containsKey("imgUrl")
                 ||getIntent().getExtras().containsKey("bigText")
@@ -121,6 +125,7 @@ public class NotifHandler extends AppCompatActivity {
         }
 
     }
+
 
    void displayInterstitial(){
         if (interstitial.isLoaded()  ) {

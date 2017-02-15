@@ -1,14 +1,20 @@
 package my.typekannada.ashwin.customkeyboard;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -16,6 +22,11 @@ import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class NotifTray extends AppCompatActivity {
     InterstitialAd mInterstitialAd;
@@ -29,6 +40,43 @@ public class NotifTray extends AppCompatActivity {
         TextView heading=(TextView)findViewById(R.id.textss);
         heading.setTypeface(myFont);
         Button feedback=(Button)findViewById(R.id.feedback) ;
+
+//Download Images
+        ImageView mimageView = (ImageView) findViewById(R.id.imageView);
+        BitmapDrawable drawable = (BitmapDrawable) mimageView.getDrawable();
+        Bitmap bitmap = drawable.getBitmap();
+        File sdCardDirectory = new File("/sdcard/TypeKannada/");
+        sdCardDirectory.mkdirs();
+        //File sdCardDirectory = Environment.getExternalStorageDirectory();
+        File image = new File(sdCardDirectory, "test.jpg");
+        MediaScannerConnection.scanFile(this, new String[] { image.getPath() }, new String[] { "image/jpeg" }, null);
+        boolean success = false;
+
+        // Encode the file as a PNG image.
+        FileOutputStream outStream;
+        try {
+
+            outStream = new FileOutputStream(image);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+        /* 100 to keep full quality of the image */
+
+            outStream.flush();
+            outStream.close();
+            success = true;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }if (success) {
+            Toast.makeText(getApplicationContext(), "Image saved with success",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(),
+                    "Error during image saving", Toast.LENGTH_LONG).show();
+        }
+
+        //Download Images Code  ends here
+
 
         final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog(this)
                 .setIcon(R.mipmap.ic_launcher)
