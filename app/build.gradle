@@ -2,19 +2,19 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         applicationId "my.example.andrei.customkeyboard"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 13
-        versionName "3.32"
+        versionCode 14
+        versionName "3.33"
     }
     buildTypes {
         release {
             minifyEnabled false
-            shrinkResources true
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -25,12 +25,12 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.pushbots:pushbots-lib:2.0.13@aar'
-    compile 'com.google.firebase:firebase-ads:9.4.0'
-    compile 'com.google.android.gms:play-services-ads:9.4.0'
+    compile 'com.google.android.gms:play-services-ads:10.0.1'
     compile 'com.android.support:design:24.2.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.javiersantos:MaterialStyledDialogs:1.5.5'
+    compile 'com.google.firebase:firebase-ads:10.0.1'
 
 }
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
 

@@ -8,9 +8,18 @@
     <string name="my_keyboard">Type Kannada</string>
     <string name="sybtype_en_US">Kannada Keyboard</string>
     <string name="sybtype_en_cn">Keyboard of century</string>
+
+    <string name="dummy_banner_ad">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="dummy_interstetial_ad">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="dummy_native_ad_test_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
     <string name="banner_ad_unit_id">ca-app-pub-1924436259631090/6298664761</string>
     <string name="AD_UNIT_ID">ca-app-pub-1924436259631090/8322489961</string>
-    <string name="admob_interstitial_id">ca-app-pub-1924436259631090/1004057164</string>
+    <string name="notif_interstitial_id">ca-app-pub-1924436259631090/1004057164</string>
+    <string name="home_interstitial_id">ca-app-pub-1924436259631090/3313079169</string><!-- new ad -->
+    <string name="native_ad_id">ca-app-pub-1924436259631090/1578993961</string>
+
+
     <string name="amper"><![CDATA[&]]></string>
     <string name="apos"><![CDATA[\"]]></string>
 

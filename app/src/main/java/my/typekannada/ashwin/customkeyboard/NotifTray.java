@@ -1,36 +1,25 @@
 package my.typekannada.ashwin.customkeyboard;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.Environment;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.google.android.gms.ads.NativeExpressAdView;
 
 public class NotifTray extends AppCompatActivity {
     InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
+    String s,s1,s3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +31,17 @@ public class NotifTray extends AppCompatActivity {
         Button feedback=(Button)findViewById(R.id.feedback) ;
 
 //Download Images
-        ImageView mimageView = (ImageView) findViewById(R.id.imageView);
+ /*       ImageView mimageView = (ImageView) findViewById(R.id.imageView);
         BitmapDrawable drawable = (BitmapDrawable) mimageView.getDrawable();
         Bitmap bitmap = drawable.getBitmap();
         File sdCardDirectory = new File("/sdcard/TypeKannada/");
         sdCardDirectory.mkdirs();
+        s="sandal";
+        s1=".jpg";
+        s3=s+s1;
         //File sdCardDirectory = Environment.getExternalStorageDirectory();
-        File image = new File(sdCardDirectory, "test.jpg");
+
+        File image = new File(sdCardDirectory, s3);
         MediaScannerConnection.scanFile(this, new String[] { image.getPath() }, new String[] { "image/jpeg" }, null);
         boolean success = false;
 
@@ -58,7 +51,7 @@ public class NotifTray extends AppCompatActivity {
 
             outStream = new FileOutputStream(image);
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream);
-        /* 100 to keep full quality of the image */
+         100 to keep full quality of the image
 
             outStream.flush();
             outStream.close();
@@ -74,8 +67,15 @@ public class NotifTray extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),
                     "Error during image saving", Toast.LENGTH_LONG).show();
         }
-
+*/
         //Download Images Code  ends here
+        NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
+
+        AdRequest request = new AdRequest.Builder()
+                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
+                .build();
+        adView.loadAd(request);
+
 
 
         final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog(this)
@@ -113,41 +113,19 @@ public class NotifTray extends AppCompatActivity {
             }
         });
 
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //interstial ad space
-                AdRequest adRequests = new AdRequest.Builder().build();
-                // Prepare the Interstitial Ad
-                interstitial = new InterstitialAd(NotifTray.this);
-// Insert the Ad Unit ID
-                interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
-                interstitial.loadAd(adRequests);
-// Prepare an Interstitial Ad Listener
-                interstitial.setAdListener(new AdListener() {
-                    public void onAdLoaded() {
-// Call displayInterstitial() function
-                        displayInterstitial();
-                    }
-                });
-//interstital finished
-                //Do something after 100ms
-            }
-        }, 8999);
+
 
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = new Intent(NotifTray.this, MainActivity.class);
         startActivity(intent);
+        finish();
+        //Intent intent = new Intent(Intent.ACTION_MAIN);
+        //intent.addCategory(Intent.CATEGORY_HOME);
+        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        //startActivity(intent);
     }
 
-    void displayInterstitial(){
-        if (interstitial.isLoaded()  ) {
-            interstitial.show();
-        }
-    }
+
 }

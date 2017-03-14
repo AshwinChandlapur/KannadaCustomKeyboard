@@ -5,32 +5,24 @@ import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
-import android.widget.EditText;
 
-import java.security.Key;
+
 
 
 public class MyKeyboard extends InputMethodService
         implements KeyboardView.OnKeyboardActionListener{
-
     private KeyboardView kv;
     private Keyboard keyboard;
     private Keyboard keyboard1;
     private Keyboard keyboard2;
     private Keyboard keyboard4;
     private Keyboard keyboard5;
-
-
-
     private boolean caps = false;
 
     @Override
     public View onCreateInputView() {
-
-
 
         kv = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
         keyboard = new Keyboard(this, R.xml.kankey);
@@ -42,14 +34,6 @@ public class MyKeyboard extends InputMethodService
         kv.setOnKeyboardActionListener(this);
         return kv;
     }
-   // @Override
-   // public View onCreateCandidatesView(){
-      //  setCandidatesViewShown(true);
-      //  return null;
-   // }
-
-
-
 
 
     @Override
@@ -60,8 +44,6 @@ public class MyKeyboard extends InputMethodService
         else{
             kv.setPreviewEnabled(true);
         }
-
-
     }
 
     @Override

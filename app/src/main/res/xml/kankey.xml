@@ -7,7 +7,7 @@
 
 
     <Row>
-        <Key android:codes="3205,3277" android:keyLabel="ಅ"   android:keyEdgeFlags="left"/>
+        <Key android:codes="3205,3277" android:keyLabel="ಅ"  android:keyEdgeFlags="left"/>
         <Key android:codes="3206,3262" android:keyLabel="ಆ"/>
         <Key android:codes="3207,3263" android:keyLabel="ಇ"/>
         <Key android:codes="3208,3264" android:keyLabel="ಈ"/>

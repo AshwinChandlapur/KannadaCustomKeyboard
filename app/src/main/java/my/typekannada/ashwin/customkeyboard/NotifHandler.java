@@ -1,16 +1,11 @@
 package my.typekannada.ashwin.customkeyboard;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,16 +17,18 @@ import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.NativeExpressAdView;
 import com.squareup.picasso.Picasso;
-
-import java.io.File;
 
 
 public class NotifHandler extends AppCompatActivity {
 
 
-    InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
+    ImageView imgView;
+    String sr;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +36,17 @@ public class NotifHandler extends AppCompatActivity {
         setContentView(R.layout.layout_general);
 
 
-        Typeface myFont = Typeface.createFromAsset(this.getAssets(),"fonts/Kaushan.otf");
-        TextView heading=(TextView)findViewById(R.id.heading);
+        Typeface myFont = Typeface.createFromAsset(this.getAssets(), "fonts/Kaushan.otf");
+        TextView heading = (TextView) findViewById(R.id.heading);
         heading.setTypeface(myFont);
-        Button feedback=(Button)findViewById(R.id.feedback) ;
+        Button feedback = (Button) findViewById(R.id.feedback);
 
+        NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
+
+        AdRequest request = new AdRequest.Builder()
+                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
+                .build();
+        adView.loadAd(request);
 
 
         final Handler handler = new Handler();
@@ -55,7 +58,7 @@ public class NotifHandler extends AppCompatActivity {
                 // Prepare the Interstitial Ad
                 interstitial = new InterstitialAd(NotifHandler.this);
 // Insert the Ad Unit ID
-                interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
+                interstitial.setAdUnitId(getString(R.string.notif_interstitial_id));
                 interstitial.loadAd(adRequests);
 // Prepare an Interstitial Ad Listener
                 interstitial.setAdListener(new AdListener() {
@@ -67,7 +70,8 @@ public class NotifHandler extends AppCompatActivity {
 //interstital finished
                 //Do something after 100ms
             }
-        }, 10000);
+        }, 7000);
+
         final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog(this)
                 .setIcon(R.mipmap.ic_launcher)
                 .withDialogAnimation(true)
@@ -105,26 +109,22 @@ public class NotifHandler extends AppCompatActivity {
                 dialogHeader_1.show();
             }
         });
-        /*String srs= extras.getString("message");
-        File sdCardDirectory = new File("/sdcard/TypeKannada/");
-        sdCardDirectory.mkdirs();
-        File image = new File(sdCardDirectory, srs);*/
-        // extras.getString("imgUrl");
+
+
         if (null != extras && getIntent().getExtras().containsKey("message") || getIntent().getExtras().containsKey("imgUrl")
-                ||getIntent().getExtras().containsKey("bigText")
-         ) {
+                || getIntent().getExtras().containsKey("bigText")
+                ) {
             TextView message = (TextView) findViewById(R.id.message);
             message.setTypeface(myFont);
             message.setText(extras.getString("bigText"));
-            ImageView imgView=(ImageView)findViewById(R.id.imgView);
-            String sr= extras.getString("imgUrl");
+            imgView = (ImageView) findViewById(R.id.imgView);
+            sr = extras.getString("imgUrl");
             Picasso.with(this).load(sr).into(imgView);
-
-            //imgUrl.setText(extras.getString("imgUrl"));
-            // Picasso.with(this).load(String.valueOf(imgUrl)).into(imgView);}
+            //Picasso.with(this).load(String.valueOf(sr)).into(imgView);}
         }
-
     }
+
+
 
 
    void displayInterstitial(){
