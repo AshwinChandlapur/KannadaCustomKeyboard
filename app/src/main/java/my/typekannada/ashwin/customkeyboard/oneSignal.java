@@ -17,37 +17,14 @@ import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.NativeExpressAdView;
 import com.squareup.picasso.Picasso;
 
-
-public class NotifHandler extends AppCompatActivity {
-
-
+public class oneSignal extends AppCompatActivity {
     private InterstitialAd interstitial;
-    ImageView imgView;
-    String sr;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_general);
-
-
-        Typeface myFont = Typeface.createFromAsset(this.getAssets(), "fonts/quicksand.otf");
-        TextView heading = (TextView) findViewById(R.id.heading);
-        heading.setTypeface(myFont);
-        Button feedback = (Button) findViewById(R.id.feedback);
-
-        NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
-
-        AdRequest request = new AdRequest.Builder()
-                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
-                .build();
-        adView.loadAd(request);
-
+        setContentView(R.layout.activity_one_signal);
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -56,7 +33,7 @@ public class NotifHandler extends AppCompatActivity {
                 //interstial ad space
                 AdRequest adRequests = new AdRequest.Builder().build();
                 // Prepare the Interstitial Ad
-                interstitial = new InterstitialAd(NotifHandler.this);
+                interstitial = new InterstitialAd(oneSignal.this);
 // Insert the Ad Unit ID
                 interstitial.setAdUnitId(getString(R.string.notif_interstitial_id));
                 interstitial.loadAd(adRequests);
@@ -70,7 +47,19 @@ public class NotifHandler extends AppCompatActivity {
 //interstital finished
                 //Do something after 100ms
             }
-        }, 7000);
+        }, 4000);
+        Typeface myFont = Typeface.createFromAsset(this.getAssets(), "fonts/quicksand.otf");
+
+        Button feedback=(Button)findViewById(R.id.feedback) ;
+        ImageView imageView =(ImageView)findViewById(R.id.imgView);
+        TextView textView = (TextView)findViewById(R.id.message);
+        textView.setTypeface(myFont);
+        Intent intent = getIntent();
+        String bigText = intent.getExtras().getString("bigText");
+        textView.setText(bigText);
+
+        String imgUrl = intent.getExtras().getString("imgUrl");
+        Picasso.with(this).load(imgUrl).into(imageView);
 
         final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog(this)
                 .setIcon(R.mipmap.ic_launcher)
@@ -94,14 +83,13 @@ public class NotifHandler extends AppCompatActivity {
                     @Override
                     public void onClick(MaterialDialog dialog, DialogAction which) {
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "ashwinchandlapur@gmail.com"));
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "Type Kannada Feedback");
                         startActivity(intent);
                         dialog.dismiss();
                     }
                 })
                 .build();
 
-
-        Bundle extras = getIntent().getExtras();
 
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,31 +98,16 @@ public class NotifHandler extends AppCompatActivity {
             }
         });
 
-
-        if (null != extras && getIntent().getExtras().containsKey("message") || getIntent().getExtras().containsKey("imgUrl")
-                || getIntent().getExtras().containsKey("bigText")
-                ) {
-            TextView message = (TextView) findViewById(R.id.message);
-            message.setTypeface(myFont);
-            message.setText(extras.getString("bigText"));
-            imgView = (ImageView) findViewById(R.id.imgView);
-            sr = extras.getString("imgUrl");
-            Picasso.with(this).load(sr).into(imgView);
-            //Picasso.with(this).load(String.valueOf(sr)).into(imgView);}
-        }
-
-        /*YoYo.with(Techniques.Landing)
-                .duration(2000)
-                .repeat(1)
-                .playOn(findViewById(R.id.imgView));*/
+       // NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
+        //AdRequest request = new AdRequest.Builder()
+                //.addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
+         //       .build();
+       // adView.loadAd(request);
 
 
     }
 
-
-
-
-   void displayInterstitial(){
+    void displayInterstitial(){
         if (interstitial.isLoaded()  ) {
             interstitial.show();
         }

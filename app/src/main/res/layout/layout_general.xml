@@ -55,6 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imgView"
+        android:src="@drawable/ic_launcher"
         android:layout_below="@+id/heading"
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
@@ -64,13 +65,13 @@
         android:maxWidth="700dp"
         android:maxHeight="180dp"/>
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgView"
         android:layout_above="@+id/feedback"
-        android:layout_centerHorizontal="true">
+        >
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
@@ -85,6 +86,7 @@
                 android:id="@+id/adView"
                 android:layout_width="280dp"
                 android:layout_height="250dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="11dp"
                 ads:adUnitId="@string/native_ad_id"
                 ads:adSize="280x250">

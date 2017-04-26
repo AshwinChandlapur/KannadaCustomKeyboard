@@ -21,17 +21,29 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-import com.pushbots.push.Pushbots;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 
 public class MainActivity extends ActionBarActivity {
     InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
+    private FirebaseAnalytics mFirebaseAnalytics;
     final String PREFS_NAME = "MyPrefsFile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+// Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        bundle.putInt("ButtonId",R.id.KanKey);
+        mFirebaseAnalytics.logEvent("Select_Keyboard",bundle);
+        //OneSignal.startInit(this)
+         //       .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler())
+         //       .init();
+
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-1924436259631090/6298664761");
 
         //Interstitial Ad Space
@@ -53,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
         // Interstetial ad Finished
 
         //Pushbots.sharedInstance().setCustomHandler(CustomHandler.class);
-        Pushbots.sharedInstance().init(this);
+       // Pushbots.sharedInstance().init(this);
        // Pushbots.sharedInstance().debug(true);
 
         //Banner Ad Space
@@ -217,6 +229,52 @@ public class MainActivity extends ActionBarActivity {
         startActivity(j);
 
     }
+
+   /* private class ExampleNotificationOpenedHandler implements OneSignal.NotificationOpenedHandler {
+        // This fires when a notification is opened by tapping on it.
+        @Override
+        public void notificationOpened(OSNotificationOpenResult result) {
+            OSNotificationAction.ActionType actionType = result.action.type;
+            JSONObject data = result.notification.payload.additionalData;
+            String bigText;
+            // bigText = data.optString("bigText", null);
+            String imgUrl;
+            //imgUrl = data.optString("imgUrl",null);
+
+            if (data != null) {
+                bigText = data.optString("bigText", null);
+                imgUrl = data.optString("imgUrl",null);
+                if(bigText!=null && imgUrl!=null) {
+                    Intent intent = new Intent(getApplicationContext(), oneSignal.class);
+                    intent.putExtra("bigText", bigText);
+                    intent.putExtra("imgUrl", imgUrl);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+                if (bigText != null)
+                    Log.i("OneSignalExample", "customkey set with value: " + bigText);
+                if (imgUrl != null)
+                    Log.i("OneSignalExample", "customkey set with value: " + imgUrl);
+                data.remove(bigText);//This is mandatory, because the Old JSON data will still be stored that causes error while opening newest notification
+                data.remove(imgUrl);//
+            }
+
+            if (actionType == OSNotificationAction.ActionType.ActionTaken)
+                Log.i("OneSignalExample", "Button pressed with id: " + result.action.actionID);
+
+            // The following can be used to open an Activity of your choice.
+
+
+
+            // Add the following to your AndroidManifest.xml to prevent the launching of your main Activity
+            //  if you are calling startActivity above.
+         /*
+            <application ...>
+              <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
+            </application>
+
+        }
+    }*/
 
 
 }

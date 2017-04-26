@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -23,23 +22,41 @@
         android:layout_centerHorizontal="true"
         android:contentDescription="Mysore Sandal Soap Ad"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+<!--
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:id="@+id/textss"
-        android:textSize="13sp"
-        android:text="An advertisement for Mysore Sandal Soap in English magazine Justice published in Madras Presidency (August 30, 1937)."
-        android:gravity="center"/>
+        android:background="#ffffff"
+        card_view:cardCornerRadius="5dp"
+        card_view:contentPadding="10dp"
+        card_view:cardBackgroundColor="#e4bfef"
+        card_view:cardElevation="4dp"
+        card_view:cardMaxElevation="6dp"
+        android:id="@+id/card1"
+        android:layout_below="@+id/imageView">
+    </android.support.v7.widget.CardView>
+    -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:id="@+id/textss"
+            android:textSize="13sp"
+            android:text="An advertisement for Mysore Sandal Soap in English magazine Justice published in Madras Presidency (August 30, 1937)."
+            android:gravity="center"/>
+
+
+
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textss"
         android:layout_above="@+id/feedback"
         >
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
@@ -69,7 +86,7 @@
         android:layout_below="@+id/textView18"
         android:layout_centerHorizontal="true" />
 
-    <com.google.android.gms.ads.NativeExpressAdView
+   <!-- <com.google.android.gms.ads.NativeExpressAdView
         android:id="@+id/adView"
         android:layout_width="280dp"
         android:layout_height="250dp"
@@ -78,7 +95,7 @@
         android:layout_marginTop="10dp"
         ads:adUnitId="@string/native_ad_id"
         ads:adSize="280x250">
-    </com.google.android.gms.ads.NativeExpressAdView>
+    </com.google.android.gms.ads.NativeExpressAdView>-->
     </LinearLayout></ScrollView>
 
 

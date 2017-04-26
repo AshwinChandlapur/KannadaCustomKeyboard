@@ -12,9 +12,7 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.NativeExpressAdView;
 
 public class NotifTray extends AppCompatActivity {
     InterstitialAd mInterstitialAd;
@@ -25,10 +23,17 @@ public class NotifTray extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notif_tray);
-        Typeface myFont = Typeface.createFromAsset(this.getAssets(),"fonts/Kaushan.otf");
+        Typeface myFont = Typeface.createFromAsset(this.getAssets(),"fonts/quicksand.otf");
         TextView heading=(TextView)findViewById(R.id.textss);
         heading.setTypeface(myFont);
         Button feedback=(Button)findViewById(R.id.feedback) ;
+
+        /*YoYo.with(Techniques.Landing)
+                .duration(2000)
+                .repeat(1)
+                .playOn(findViewById(R.id.imageView));*/
+
+
 
 //Download Images
  /*       ImageView mimageView = (ImageView) findViewById(R.id.imageView);
@@ -69,12 +74,12 @@ public class NotifTray extends AppCompatActivity {
         }
 */
         //Download Images Code  ends here
-        NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
+        /*NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
 
         AdRequest request = new AdRequest.Builder()
                 .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
                 .build();
-        adView.loadAd(request);
+        adView.loadAd(request);*/
 
 
 
@@ -100,6 +105,7 @@ public class NotifTray extends AppCompatActivity {
                     @Override
                     public void onClick(MaterialDialog dialog, DialogAction which) {
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "ashwinchandlapur@gmail.com"));
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "Type Kannada Feedback");
                         startActivity(intent);
                         dialog.dismiss();
                     }
