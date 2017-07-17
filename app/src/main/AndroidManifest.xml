@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="my.typekannada.ashwin.customkeyboard">
+
     <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
 
     <!-- GCM connects to Google Services. -->
@@ -15,10 +16,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.onesignal.NotificationOpened.DEFAULT"
             android:value="DISABLE" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -52,7 +53,8 @@
 
         <activity android:name=".NotifHandler" />
         <activity android:name=".NotifTray" />
-        <activity android:name=".oneSignal"></activity>
+        <activity android:name=".oneSignal" />
+        <activity android:name=".urlaunch"></activity>
     </application>
 
 </manifest>

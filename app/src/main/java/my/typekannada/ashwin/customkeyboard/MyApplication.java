@@ -1,7 +1,9 @@
 package my.typekannada.ashwin.customkeyboard;
 
 import android.app.Application;
+import android.app.FragmentManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
 import com.onesignal.OSNotification;
@@ -38,6 +40,7 @@ public class MyApplication extends Application {
                 imgUrl = data.optString("imgUrl",null);
                 if(bigText!=null && imgUrl!=null) {
                     Intent intent = new Intent(getApplicationContext(), oneSignal.class);
+                    Log.i("OneSignal","Executed");
                     intent.putExtra("bigText", bigText);
                     intent.putExtra("imgUrl", imgUrl);
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -64,17 +67,32 @@ public class MyApplication extends Application {
             JSONObject data = result.notification.payload.additionalData;
             String bigText;
             String imgUrl;
+            String targetUrl;
 
             if (data != null) {
                 bigText = data.optString("bigText", null);
                 imgUrl = data.optString("imgUrl",null);
-                if(bigText!=null && imgUrl!=null) {
+                targetUrl = data.optString("targetUrl",null);
+
+                // if(!(bigText!=null && imgUrl!=null) && targetUrl!=null)
+                if(bigText==null && imgUrl==null)
+                {
+                    Intent intent = new Intent(getApplicationContext(), urlaunch.class);
+                    Log.i("URL Launch","Executed");
+                    intent.putExtra("targetUrl",targetUrl);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }else {
                     Intent intent = new Intent(getApplicationContext(), oneSignal.class);
+                    Log.i("OneSignal","Executed");
                     intent.putExtra("bigText", bigText);
                     intent.putExtra("imgUrl", imgUrl);
+                    intent.putExtra("targetUrl",targetUrl);
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }
+
+
                 if (bigText != null)
                     Log.i("OneSignalExample", "customkey set with value: " + bigText);
                 if (imgUrl != null)

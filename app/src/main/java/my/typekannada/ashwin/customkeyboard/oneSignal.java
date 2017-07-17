@@ -61,6 +61,15 @@ public class oneSignal extends AppCompatActivity {
         String imgUrl = intent.getExtras().getString("imgUrl");
         Picasso.with(this).load(imgUrl).into(imageView);
 
+
+        String targetUrl = intent.getExtras().getString("targetUrl");
+        if(targetUrl!=null)
+        {
+            Intent i = new Intent(android.content.Intent.ACTION_VIEW);
+            i.setData(Uri.parse(targetUrl));
+            startActivity(i);
+        }
+
         final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog(this)
                 .setIcon(R.mipmap.ic_launcher)
                 .withDialogAnimation(true)
