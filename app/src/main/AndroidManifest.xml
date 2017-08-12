@@ -54,7 +54,6 @@
         <activity android:name=".NotifHandler" />
         <activity android:name=".NotifTray" />
         <activity android:name=".oneSignal" />
-        <activity android:name=".urlaunch"></activity>
     </application>
 
 </manifest>

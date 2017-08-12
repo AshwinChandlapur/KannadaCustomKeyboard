@@ -73,15 +73,20 @@ public class MyApplication extends Application {
                 bigText = data.optString("bigText", null);
                 imgUrl = data.optString("imgUrl",null);
                 targetUrl = data.optString("targetUrl",null);
+                Log.i(targetUrl,"TargetUrl");
 
                 // if(!(bigText!=null && imgUrl!=null) && targetUrl!=null)
                 if(bigText==null && imgUrl==null)
                 {
-                    Intent intent = new Intent(getApplicationContext(), urlaunch.class);
-                    Log.i("URL Launch","Executed");
-                    intent.putExtra("targetUrl",targetUrl);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    Intent i = new Intent(android.content.Intent.ACTION_VIEW,Uri.parse(targetUrl));
+                    i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(i);
+
+//                    Intent intent = new Intent(getApplicationContext(), urlaunch.class);
+//                    Log.i("URL Launch","Executed");
+//                    intent.putExtra("targetUrl",targetUrl);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(intent);
                 }else {
                     Intent intent = new Intent(getApplicationContext(), oneSignal.class);
                     Log.i("OneSignal","Executed");
