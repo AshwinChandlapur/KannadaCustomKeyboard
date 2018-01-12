@@ -1,5 +1,6 @@
 package my.typekannada.ashwin.customkeyboard;
 
+import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -23,6 +24,8 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
+import java.util.Calendar;
+
 
 public class MainActivity extends ActionBarActivity {
     InterstitialAd mInterstitialAd;
@@ -33,6 +36,19 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        ///AlarmManager for Notification
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,22);
+        calendar.set(Calendar.MINUTE,38 );
+        calendar.set(Calendar.SECOND,00 );
+        Intent intent = new Intent((getApplicationContext()),Notification_receiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),alarmManager.INTERVAL_DAY,pendingIntent);
+        ///Ends Here
 
 
 // Obtain the FirebaseAnalytics instance.

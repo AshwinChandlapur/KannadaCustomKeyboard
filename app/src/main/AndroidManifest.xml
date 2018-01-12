@@ -6,9 +6,11 @@
 
     <!-- GCM connects to Google Services. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- GCM requires a Google account. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
         android:name=".MyApplication"
@@ -54,6 +56,10 @@
         <activity android:name=".NotifHandler" />
         <activity android:name=".NotifTray" />
         <activity android:name=".oneSignal" />
+
+        <receiver android:name=".Notification_receiver" />
+
+        <activity android:name=".db_notif"></activity>
     </application>
 
 </manifest>
