@@ -28,13 +28,15 @@ public class Notification_receiver  extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Type Kannada BRuh")
-                .setContentText("Kannada Pada")
+                .setContentTitle("Type Kannada")
+                .setContentText("Kannada Fact")
                 .setAutoCancel(true)
                 .setPriority(Notification.PRIORITY_HIGH)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
-
         notificationManager.notify(100,builder.build());
+
+
+
 
     }
 }

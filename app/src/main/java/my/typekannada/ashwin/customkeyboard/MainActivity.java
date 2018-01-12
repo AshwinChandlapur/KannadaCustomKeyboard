@@ -41,8 +41,8 @@ public class MainActivity extends ActionBarActivity {
 
         ///AlarmManager for Notification
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,22);
-        calendar.set(Calendar.MINUTE,38 );
+        calendar.set(Calendar.HOUR_OF_DAY,23);
+        calendar.set(Calendar.MINUTE,55);
         calendar.set(Calendar.SECOND,00 );
         Intent intent = new Intent((getApplicationContext()),Notification_receiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
