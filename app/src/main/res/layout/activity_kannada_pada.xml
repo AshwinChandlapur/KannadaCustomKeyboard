@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="my.typekannada.ashwin.customkeyboard.oneSignal">
+    tools:context="my.typekannada.ashwin.customkeyboard.db_notif_kannadapada.KannadaPada">
 
 
 

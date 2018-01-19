@@ -1,16 +1,16 @@
-package my.typekannada.ashwin.customkeyboard;
+package my.typekannada.ashwin.customkeyboard.db_notif_Facts;
 
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
-import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,10 +20,16 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.Random;
+
+import my.typekannada.ashwin.customkeyboard.MainActivity;
+import my.typekannada.ashwin.customkeyboard.R;
 
 public class db_notif extends AppCompatActivity {
 
@@ -32,6 +38,7 @@ public class db_notif extends AppCompatActivity {
     //initiate cursor and point to null
     Cursor c=null;
     Cursor csec=null;
+    private InterstitialAd interstitial;
 
     //to get db length
     int db_length;
@@ -48,6 +55,29 @@ public class db_notif extends AppCompatActivity {
         android.support.v7.app.ActionBar AB = getSupportActionBar();
         AB.hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //Interstitial Ad Space
+        AdRequest adRequests = new AdRequest.Builder()
+                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
+                .build();
+        // Prepare the Interstitial Ad
+        interstitial = new InterstitialAd(db_notif.this);
+// Insert the Ad Unit ID
+        interstitial.setAdUnitId(getString(R.string.home_interstitial_id));
+        interstitial.loadAd(adRequests);
+// Prepare an Interstitial Ad Listener
+        interstitial.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+// Call displayInterstitial() function
+                displayInterstitial();
+            }
+        });
+        // Interstetial ad Finished
+
+
+
+
+
 
 //        Typeface myFont = Typeface.createFromAsset(this.getAssets(), "fonts/quicksand.otf");
 
@@ -91,7 +121,7 @@ public class db_notif extends AppCompatActivity {
 
 
 
-        ImageView imageView =(ImageView)findViewById(R.id.imgView);
+//        ImageView imageView =(ImageView)findViewById(R.id.imgView);
         message = (TextView)findViewById(R.id.message);
 //        message.setTypeface(myFont);
 
@@ -180,5 +210,28 @@ public class db_notif extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void displayInterstitial() {
+// If Ads are loaded, show Interstitial else show nothing.
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
+    }
+
+
 
 }

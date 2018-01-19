@@ -60,6 +60,7 @@
     <string name="title_activity_my_location">MyLocation</string>
     <string name="title_activity_test">test</string>
     <string name="title_activity_news">newsActivity</string>
+    <string name="title_activity_kannada_pada">KannadaPada</string>
 
 
 </resources>

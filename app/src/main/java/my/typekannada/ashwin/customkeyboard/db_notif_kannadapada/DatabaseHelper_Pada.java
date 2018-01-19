@@ -1,4 +1,4 @@
-package my.typekannada.ashwin.customkeyboard;
+package my.typekannada.ashwin.customkeyboard.db_notif_kannadapada;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -16,14 +16,14 @@ import java.io.OutputStream;
  * Created by Nikhil on 26-01-2017.
  */
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper_Pada extends SQLiteOpenHelper {
 
     String DB_PATH = null;
-    private static String DB_NAME = "facts";
+    private static String DB_NAME = "kannadapada";
     private SQLiteDatabase myDataBase;
     private final Context myContext;
 
-    public DatabaseHelper(Context context) {
+    public DatabaseHelper_Pada(Context context) {
         super(context, DB_NAME, null, 10);
         this.myContext = context;
         this.DB_PATH = "/data/data/" + context.getPackageName() + "/" + "databases/";
@@ -54,7 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (checkDB != null) {
             checkDB.close();
         }
-        return checkDB != null ? true : false;
+        return checkDB != null;
     }
 
     private void copyDataBase() throws IOException {
