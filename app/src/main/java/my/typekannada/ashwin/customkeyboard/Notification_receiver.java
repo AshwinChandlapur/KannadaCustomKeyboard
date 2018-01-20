@@ -25,10 +25,7 @@ public class Notification_receiver  extends BroadcastReceiver {
 
         Intent mainActivity = new Intent((context),db_notif.class);
         mainActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
         PendingIntent pendingIntent = PendingIntent.getActivity(context,100,mainActivity,PendingIntent.FLAG_UPDATE_CURRENT);
-
-
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -40,11 +37,10 @@ public class Notification_receiver  extends BroadcastReceiver {
         notificationManager.notify(100,builder.build());
 
 
-
+        NotificationManager notificationManager1 = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent mainActivity1 = new Intent((context),KannadaPada.class);
         mainActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent1 = PendingIntent.getActivity(context,0,mainActivity1,PendingIntent.FLAG_UPDATE_CURRENT);
-
         NotificationCompat.Builder builder1 = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent1)
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -53,7 +49,7 @@ public class Notification_receiver  extends BroadcastReceiver {
                 .setAutoCancel(true)
                 .setPriority(Notification.PRIORITY_HIGH)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
-        notificationManager.notify(101,builder1.build());
+        notificationManager1.notify(0,builder1.build());
 
 
 

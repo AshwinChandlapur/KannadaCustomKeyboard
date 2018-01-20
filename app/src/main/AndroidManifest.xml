@@ -57,7 +57,10 @@
         <activity android:name=".NotifTray" />
         <activity android:name=".oneSignal" />
 
-        <receiver android:name=".Notification_receiver" />
+        <receiver android:name=".Notification_receiver">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+        </intent-filter></receiver>
 
         <activity android:name=".db_notif_Facts.db_notif" />
         <activity

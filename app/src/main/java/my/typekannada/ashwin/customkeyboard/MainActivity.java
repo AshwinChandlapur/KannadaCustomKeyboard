@@ -40,8 +40,8 @@ public class MainActivity extends ActionBarActivity {
 
         ///AlarmManager for Notification of Facts
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,21);
-        calendar.set(Calendar.MINUTE,28);
+        calendar.set(Calendar.HOUR_OF_DAY,23);
+        calendar.set(Calendar.MINUTE,30);
         calendar.set(Calendar.SECOND,00 );
         Intent intent = new Intent((getApplicationContext()),Notification_receiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
@@ -51,8 +51,8 @@ public class MainActivity extends ActionBarActivity {
 
         ///AlarmManager for Notification of KannadaPada
         Calendar calendar1 = Calendar.getInstance();
-        calendar1.set(Calendar.HOUR_OF_DAY,21);
-        calendar1.set(Calendar.MINUTE,36);
+        calendar1.set(Calendar.HOUR_OF_DAY,23);
+        calendar1.set(Calendar.MINUTE,35);
         calendar1.set(Calendar.SECOND,00 );
         Intent intent1 = new Intent((getApplicationContext()),Notification_receiver.class);
         PendingIntent pendingIntent1 = PendingIntent.getBroadcast(getApplicationContext(),0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
@@ -197,8 +197,6 @@ public class MainActivity extends ActionBarActivity {
 
     public void langset(View view) {
 
-       // Intent k = new Intent(MainActivity.this,NotifHandler.class);
-         //startActivity(k);
         Intent j = new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS);
         j.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
         startActivity(j);

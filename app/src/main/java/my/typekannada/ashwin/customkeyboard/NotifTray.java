@@ -28,58 +28,6 @@ public class NotifTray extends AppCompatActivity {
         heading.setTypeface(myFont);
         Button feedback=(Button)findViewById(R.id.feedback) ;
 
-        /*YoYo.with(Techniques.Landing)
-                .duration(2000)
-                .repeat(1)
-                .playOn(findViewById(R.id.imageView));*/
-
-
-
-//Download Images
- /*       ImageView mimageView = (ImageView) findViewById(R.id.imageView);
-        BitmapDrawable drawable = (BitmapDrawable) mimageView.getDrawable();
-        Bitmap bitmap = drawable.getBitmap();
-        File sdCardDirectory = new File("/sdcard/TypeKannada/");
-        sdCardDirectory.mkdirs();
-        s="sandal";
-        s1=".jpg";
-        s3=s+s1;
-        //File sdCardDirectory = Environment.getExternalStorageDirectory();
-
-        File image = new File(sdCardDirectory, s3);
-        MediaScannerConnection.scanFile(this, new String[] { image.getPath() }, new String[] { "image/jpeg" }, null);
-        boolean success = false;
-
-        // Encode the file as a PNG image.
-        FileOutputStream outStream;
-        try {
-
-            outStream = new FileOutputStream(image);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream);
-         100 to keep full quality of the image
-
-            outStream.flush();
-            outStream.close();
-            success = true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }if (success) {
-            Toast.makeText(getApplicationContext(), "Image saved with success",
-                    Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(getApplicationContext(),
-                    "Error during image saving", Toast.LENGTH_LONG).show();
-        }
-*/
-        //Download Images Code  ends here
-        /*NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
-
-        AdRequest request = new AdRequest.Builder()
-                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
-                .build();
-        adView.loadAd(request);*/
 
 
 
@@ -127,10 +75,6 @@ public class NotifTray extends AppCompatActivity {
         Intent intent = new Intent(NotifTray.this, MainActivity.class);
         startActivity(intent);
         finish();
-        //Intent intent = new Intent(Intent.ACTION_MAIN);
-        //intent.addCategory(Intent.CATEGORY_HOME);
-        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        //startActivity(intent);
     }
 
 

@@ -122,13 +122,6 @@ public class NotifHandler extends AppCompatActivity {
             Picasso.with(this).load(sr).into(imgView);
             //Picasso.with(this).load(String.valueOf(sr)).into(imgView);}
         }
-
-        /*YoYo.with(Techniques.Landing)
-                .duration(2000)
-                .repeat(1)
-                .playOn(findViewById(R.id.imgView));*/
-
-
     }
 
 

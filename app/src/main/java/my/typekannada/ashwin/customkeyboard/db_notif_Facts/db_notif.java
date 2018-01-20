@@ -76,11 +76,6 @@ public class db_notif extends AppCompatActivity {
 
 
 
-
-
-
-//        Typeface myFont = Typeface.createFromAsset(this.getAssets(), "fonts/quicksand.otf");
-
         Button feedback=(Button)findViewById(R.id.feedback) ;
         final MaterialStyledDialog dialogHeader_1 = new MaterialStyledDialog(this)
                 .setIcon(R.mipmap.ic_launcher)

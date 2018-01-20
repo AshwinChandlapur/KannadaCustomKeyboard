@@ -21,42 +21,7 @@ public class MyApplication extends Application {
         OneSignal.startInit(this)
                 .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler())
                 .init();
-
-        // Call syncHashedEmail anywhere in your app if you have the user's email.
-        // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
-        // OneSignal.syncHashedEmail(userEmail);
     }
-
-
-    class ExampleNotificationReceivedHandler implements OneSignal.NotificationReceivedHandler {
-        @Override
-        public void notificationReceived(OSNotification notification) {
-            JSONObject data = notification.payload.additionalData;
-            String bigText;
-            String imgUrl;
-
-            if (data != null) {
-                bigText = data.optString("bigText", null);
-                imgUrl = data.optString("imgUrl",null);
-                if(bigText!=null && imgUrl!=null) {
-                    Intent intent = new Intent(getApplicationContext(), oneSignal.class);
-                    Log.i("OneSignal","Executed");
-                    intent.putExtra("bigText", bigText);
-                    intent.putExtra("imgUrl", imgUrl);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                }
-                if (bigText != null)
-                    Log.i("OneSignalExample", "customkey set with value: " + bigText);
-                if (imgUrl != null)
-                    Log.i("OneSignalExample", "customkey set with value: " + imgUrl);
-                data.remove(bigText);//This is mandatory, because the Old JSON data will still be stored that causes error while opening newest notification
-                data.remove(imgUrl);//
-            }
-
-        }
-    }
-
 
 
     private class ExampleNotificationOpenedHandler implements OneSignal.NotificationOpenedHandler {
@@ -81,12 +46,6 @@ public class MyApplication extends Application {
                     Intent i = new Intent(android.content.Intent.ACTION_VIEW,Uri.parse(targetUrl));
                     i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
-
-//                    Intent intent = new Intent(getApplicationContext(), urlaunch.class);
-//                    Log.i("URL Launch","Executed");
-//                    intent.putExtra("targetUrl",targetUrl);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    startActivity(intent);
                 }else {
                     Intent intent = new Intent(getApplicationContext(), oneSignal.class);
                     Log.i("OneSignal","Executed");
