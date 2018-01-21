@@ -21,6 +21,7 @@ public class MyApplication extends Application {
         OneSignal.startInit(this)
                 .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler())
                 .init();
+
     }
 
 

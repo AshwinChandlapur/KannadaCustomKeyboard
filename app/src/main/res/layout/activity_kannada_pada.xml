@@ -55,8 +55,17 @@
                 android:id="@+id/message"
                 android:text="message"
                 android:layout_margin="10dp"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/rView"
+                android:layout_margin="10dp"
+                android:textSize="12sp"/>
 
 
 

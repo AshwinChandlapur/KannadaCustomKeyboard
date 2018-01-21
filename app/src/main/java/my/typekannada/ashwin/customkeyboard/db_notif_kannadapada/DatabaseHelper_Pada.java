@@ -12,9 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-/**
- * Created by Nikhil on 26-01-2017.
- */
 
 public class DatabaseHelper_Pada extends SQLiteOpenHelper {
 

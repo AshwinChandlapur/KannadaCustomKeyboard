@@ -16,30 +16,15 @@ import my.typekannada.ashwin.customkeyboard.db_notif_kannadapada.KannadaPada;
  * Created by ashwinchandlapur on 12/01/18.
  */
 
-public class Notification_receiver  extends BroadcastReceiver {
+public class Notification_receiver_pada extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent){
 
-        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        Intent mainActivity = new Intent((context),db_notif.class);
-        mainActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,100,mainActivity,PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-                .setContentIntent(pendingIntent)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Type Kannada")
-                .setContentText("Kannada Fact")
-                .setAutoCancel(true)
-                .setPriority(Notification.PRIORITY_HIGH)
-                .setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
-        notificationManager.notify(100,builder.build());
-
 
         NotificationManager notificationManager1 = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent mainActivity1 = new Intent((context),KannadaPada.class);
-        mainActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        mainActivity1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent1 = PendingIntent.getActivity(context,0,mainActivity1,PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder1 = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent1)

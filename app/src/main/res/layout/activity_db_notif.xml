@@ -23,11 +23,17 @@
             android:adjustViewBounds="true"
             />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
             android:textColor="#ffffff"
             android:id="@+id/message"
             android:text="message"
@@ -36,7 +42,24 @@
             />
 
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/message"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:id="@+id/rView"
+            android:layout_margin="30dp"
+            android:textSize="12sp"/></RelativeLayout>
+
+
     </FrameLayout>
+
+
+
+
 
 
     <Button
@@ -48,6 +71,7 @@
         android:id="@+id/feedback"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
 
 
 

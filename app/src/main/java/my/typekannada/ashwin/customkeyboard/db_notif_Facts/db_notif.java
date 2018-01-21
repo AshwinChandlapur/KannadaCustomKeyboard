@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -25,6 +26,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 import java.io.IOException;
 import java.util.Random;
 
@@ -39,6 +43,9 @@ public class db_notif extends AppCompatActivity {
     Cursor c=null;
     Cursor csec=null;
     private InterstitialAd interstitial;
+
+
+    TextView rView;
 
     //to get db length
     int db_length;
@@ -73,6 +80,35 @@ public class db_notif extends AppCompatActivity {
             }
         });
         // Interstetial ad Finished
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+
+                    //get the Document object from the site. Enter the link of site you want to fetch
+                    Document document = Jsoup.connect("http://ashwinchandlapur.github.io/SVGName/").get(); // this is the website string
+                    //Get the text we want
+                    final String title = document.select("h2").text().toString();
+                    Log.d("String title is", title);
+                    //set the title of text view
+                    //Run this on ui thread because another thread cannot touch the views of main thread
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            //set both the text views
+                            rView = (TextView)findViewById(R.id.rView);
+                            rView.setText(title);
+                            rView.setMovementMethod(new ScrollingMovementMethod());
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
 
 
