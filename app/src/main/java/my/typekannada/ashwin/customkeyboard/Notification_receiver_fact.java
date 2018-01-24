@@ -6,6 +6,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 
@@ -21,8 +23,24 @@ public class Notification_receiver_fact extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent){
 
-        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 
+
+        if ("android.intent.action.BOOT_COMPLETED".equals(intent.getAction())) {
+//            buildNotif(context);
+//            Intent i = new Intent(context, MyApplication.class);  //MyActivity can be anything which you want to start on bootup...
+//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(i);
+
+            Intent serviceIntent = new Intent(context, MyService.class);
+            context.startService(serviceIntent);
+        }else{
+            buildNotif(context);
+        }
+    }
+
+    public void buildNotif(Context context)
+    {
+        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent mainActivity = new Intent((context),db_notif.class);
         mainActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(context,100,mainActivity,PendingIntent.FLAG_UPDATE_CURRENT);
@@ -35,24 +53,8 @@ public class Notification_receiver_fact extends BroadcastReceiver {
                 .setPriority(Notification.PRIORITY_HIGH)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
         notificationManager.notify(100,builder.build());
-
-
-//        NotificationManager notificationManager1 = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-//        Intent mainActivity1 = new Intent((context),KannadaPada.class);
-//        mainActivity1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        PendingIntent pendingIntent1 = PendingIntent.getActivity(context,0,mainActivity1,PendingIntent.FLAG_UPDATE_CURRENT);
-//        NotificationCompat.Builder builder1 = new NotificationCompat.Builder(context)
-//                .setContentIntent(pendingIntent1)
-//                .setSmallIcon(R.mipmap.ic_launcher)
-//                .setContentTitle("Type Kannada ")
-//                .setContentText("Kannada Pada")
-//                .setAutoCancel(true)
-//                .setPriority(Notification.PRIORITY_HIGH)
-//                .setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
-//        notificationManager1.notify(0,builder1.build());
-
-
-
-
     }
 }
+
+
+

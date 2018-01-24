@@ -11,6 +11,7 @@
     <!-- GCM requires a Google account. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".MyApplication"
@@ -57,18 +58,37 @@
         <activity android:name=".NotifTray" />
         <activity android:name=".oneSignal" />
 
-        <receiver android:name=".Notification_receiver_fact"
+        <receiver
+            android:name=".Notification_receiver_fact"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Notification_receiver_fact"
             android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".Notification_receiver_pada"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Notification_receiver_pada"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
         </receiver>
 
-        <receiver android:name=".Notification_receiver_pada"
-            android:process=":remote">
-        </receiver>
         <activity android:name=".db_notif_Facts.db_notif" />
         <activity
             android:name=".db_notif_kannadapada.KannadaPada"
             android:label="@string/title_activity_kannada_pada"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

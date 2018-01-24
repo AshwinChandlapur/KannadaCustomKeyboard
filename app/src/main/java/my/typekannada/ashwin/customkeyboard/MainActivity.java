@@ -37,33 +37,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
 
-
-        ///AlarmManager for Notification of Facts
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,12);
-        calendar.set(Calendar.MINUTE,13);
-        calendar.set(Calendar.SECOND,00 );
-        Intent intent = new Intent((getApplicationContext()),Notification_receiver_fact.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,pendingIntent);
-        ///Ends Here
-
-        ///AlarmManager for Notification of KannadaPada
-        Calendar calendar1 = Calendar.getInstance();
-        calendar1.set(Calendar.HOUR_OF_DAY,12);
-        calendar1.set(Calendar.MINUTE,15);
-        calendar1.set(Calendar.SECOND,00 );
-        Intent intent1 = new Intent((getApplicationContext()),Notification_receiver_pada.class);
-        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(getApplicationContext(),0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager1 = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager1.setRepeating(AlarmManager.RTC_WAKEUP,calendar1.getTimeInMillis(), AlarmManager.INTERVAL_DAY,pendingIntent1);
-        ///Ends Here
-
-
-
-
-
 // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();

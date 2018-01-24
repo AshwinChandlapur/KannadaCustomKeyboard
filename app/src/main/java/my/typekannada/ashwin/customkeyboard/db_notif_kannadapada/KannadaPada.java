@@ -76,7 +76,7 @@ public class KannadaPada extends AppCompatActivity {
         // Prepare the Interstitial Ad
         interstitial = new InterstitialAd(KannadaPada.this);
 // Insert the Ad Unit ID
-        interstitial.setAdUnitId(getString(R.string.home_interstitial_id));
+        interstitial.setAdUnitId(getString(R.string.notif_interstitial_id));
         interstitial.loadAd(adRequests);
 // Prepare an Interstitial Ad Listener
         interstitial.setAdListener(new AdListener() {

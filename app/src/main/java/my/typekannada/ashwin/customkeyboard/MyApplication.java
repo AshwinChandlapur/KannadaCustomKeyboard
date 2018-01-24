@@ -1,7 +1,9 @@
 package my.typekannada.ashwin.customkeyboard;
 
+import android.app.AlarmManager;
 import android.app.Application;
 import android.app.FragmentManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
@@ -13,6 +15,8 @@ import com.onesignal.OneSignal;
 
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class MyApplication extends Application {
     @Override
     public void onCreate() {
@@ -21,6 +25,9 @@ public class MyApplication extends Application {
         OneSignal.startInit(this)
                 .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler())
                 .init();
+
+//
+
 
     }
 
