@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import my.typekannada.ashwin.customkeyboard.db_notif_Facts.db_notif;
 import my.typekannada.ashwin.customkeyboard.db_notif_kannadapada.KannadaPada;
@@ -24,17 +25,14 @@ public class Notification_receiver_fact extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent){
 
 
-
         if ("android.intent.action.BOOT_COMPLETED".equals(intent.getAction())) {
 //            buildNotif(context);
-//            Intent i = new Intent(context, MyApplication.class);  //MyActivity can be anything which you want to start on bootup...
-//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            context.startActivity(i);
-
-            Intent serviceIntent = new Intent(context, MyService.class);
-            context.startService(serviceIntent);
+            Intent i = new Intent(context, MyApplication.class);  //MyActivity can be anything which you want to start on bootup...
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(i);
         }else{
             buildNotif(context);
+
         }
     }
 
