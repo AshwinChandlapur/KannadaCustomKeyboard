@@ -28,8 +28,8 @@ public class MyApplication extends Application {
 
         ///AlarmManager for Notification of Facts
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,23);
-        calendar.set(Calendar.MINUTE,47);
+        calendar.set(Calendar.HOUR_OF_DAY,11);
+        calendar.set(Calendar.MINUTE,02);
         calendar.set(Calendar.SECOND,00 );
         if(calendar.before(Calendar.getInstance())) {
             calendar.add(Calendar.DATE, 1);
@@ -42,8 +42,8 @@ public class MyApplication extends Application {
 
         ///AlarmManager for Notification of KannadaPada
         Calendar calendar1 = Calendar.getInstance();
-        calendar1.set(Calendar.HOUR_OF_DAY,23);
-        calendar1.set(Calendar.MINUTE,57);
+        calendar1.set(Calendar.HOUR_OF_DAY,20);
+        calendar1.set(Calendar.MINUTE,02);
         calendar1.set(Calendar.SECOND,00 );
         if(calendar1.before(Calendar.getInstance())) {
             calendar1.add(Calendar.DATE, 1);
