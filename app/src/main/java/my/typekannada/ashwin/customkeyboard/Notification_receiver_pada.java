@@ -24,14 +24,16 @@ public class Notification_receiver_pada extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent1){
 
 
-        if ("android.intent.action.BOOT_COMPLETED".equals(intent1.getAction())) {
-            Intent i = new Intent(context, MyApplication.class);  //MyActivity can be anything which you want to start on bootup...
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(i);
-        }else
-        {
-            buildNotification(context);
-        }
+//        if ("android.intent.action.BOOT_COMPLETED".equals(intent1.getAction())) {
+//            Intent i = new Intent(context, MyApplication.class);  //MyActivity can be anything which you want to start on bootup...
+//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(i);
+//        }else
+//        {
+//            buildNotification(context);
+//        }
+
+        buildNotification(context);
     }
 
     public void buildNotification(Context context){

@@ -25,15 +25,17 @@ public class Notification_receiver_fact extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent){
 
 
-        if ("android.intent.action.BOOT_COMPLETED".equals(intent.getAction())) {
+//        if ("android.intent.action.BOOT_COMPLETED".equals(intent.getAction())) {
+////            buildNotif(context);
+//            Intent i = new Intent(context, MyApplication.class);  //MyActivity can be anything which you want to start on bootup...
+//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(i);
+//        }else{
 //            buildNotif(context);
-            Intent i = new Intent(context, MyApplication.class);  //MyActivity can be anything which you want to start on bootup...
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(i);
-        }else{
-            buildNotif(context);
+//
+//        }
 
-        }
+        buildNotif(context);
     }
 
     public void buildNotif(Context context)
