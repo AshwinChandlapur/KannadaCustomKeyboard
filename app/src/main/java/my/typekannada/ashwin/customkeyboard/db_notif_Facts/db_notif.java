@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -49,10 +50,11 @@ public class db_notif extends AppCompatActivity {
 
     //to get db length
     int db_length;
-
     int n_row;
     int c_row;
     TextView message;
+    CardView promo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,7 @@ public class db_notif extends AppCompatActivity {
         // Prepare the Interstitial Ad
         interstitial = new InterstitialAd(db_notif.this);
 // Insert the Ad Unit ID
-        interstitial.setAdUnitId(getString(R.string.home_interstitial_id));
+        interstitial.setAdUnitId(getString(R.string.notif_interstitial_id));
         interstitial.loadAd(adRequests);
 // Prepare an Interstitial Ad Listener
         interstitial.setAdListener(new AdListener() {
@@ -110,6 +112,15 @@ public class db_notif extends AppCompatActivity {
             }
         }).start();
 
+
+        promo = (CardView) findViewById(R.id.promos);
+        promo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=vadeworks.news.duniya"));
+                startActivity(i);
+            }
+        });
 
 
         Button feedback=(Button)findViewById(R.id.feedback) ;
@@ -201,11 +212,6 @@ public class db_notif extends AppCompatActivity {
         String imgString = c.getString(3);
         Log.i("Message",factString);
         message.setText(factString);
-
-
-
-
-
 
 
 

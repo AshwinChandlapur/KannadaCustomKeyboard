@@ -6,62 +6,139 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
+
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.util.Calendar;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     private InterstitialAd interstitial;
-    private FirebaseAnalytics mFirebaseAnalytics;
     final String PREFS_NAME = "MyPrefsFile";
+    CardView promo;
+    TextView rView,rView1;
+    CardView card1;
+    ImageView playButton;
+    private RewardedVideoAd mRewardedVideoAd;
+
+    private static final String AD_CARD = "ad_card";
+    private static final String NEWS_PROMO_CARD="news_promo_card";
+//    FirebaseRemoteConfig mFirebaseRemoteConfig;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//
+//        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+//        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
+//                .setDeveloperModeEnabled(BuildConfig.DEBUG)
+//                .build();
+//        mFirebaseRemoteConfig.setConfigSettings(configSettings);
+//        mFirebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
+//
+//        long cacheExpiration = 24 * 60 * 60; // 1 Day
+//
+//        if (mFirebaseRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()) {
+//            cacheExpiration = 0;
+//        }
+//
+//        mFirebaseRemoteConfig.fetch(cacheExpiration).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//
+//                if(mFirebaseRemoteConfig.getBoolean(AD_CARD)){
+//                        card1.setVisibility(View.VISIBLE);
+//                }else{
+//                    card1.setVisibility(View.GONE);
+//                }
+//
+//
+//                if(mFirebaseRemoteConfig.getBoolean(NEWS_PROMO_CARD)){
+//                    promo.setVisibility(View.VISIBLE);
+//                }else{
+//                    promo.setVisibility(View.GONE);
+//                }
+//
+//
+//            }
+//        });
 
 
-// Obtain the FirebaseAnalytics instance.
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        Bundle bundle = new Bundle();
-        bundle.putInt("ButtonId",R.id.KanKey);
-        mFirebaseAnalytics.logEvent("Select_Keyboard",bundle);
-        //OneSignal.startInit(this)
-         //       .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler())
-         //       .init();
+        card1 = (CardView)findViewById(R.id.card1);
+        rView = (TextView)findViewById(R.id.rView);
+        rView1 = (TextView)findViewById(R.id.rView1);
+
+
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        loadRewardedVideoAd();
+        playButton = (ImageView) findViewById(R.id.playButton);
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mRewardedVideoAd.isLoaded()) {
+                    mRewardedVideoAd.show();
+                }else{
+                    displayInterstitial();
+                }
+            }
+        });
+
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-1924436259631090/6298664761");
 
         //Interstitial Ad Space
         AdRequest adRequests = new AdRequest.Builder()
-                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
+                .addTestDevice("91BCA0B98362AF53D5488A3F87FA1614")
                 .build();
-        // Prepare the Interstitial Ad
         interstitial = new InterstitialAd(MainActivity.this);
-// Insert the Ad Unit ID
         interstitial.setAdUnitId(getString(R.string.home_interstitial_id));
         interstitial.loadAd(adRequests);
-// Prepare an Interstitial Ad Listener
         interstitial.setAdListener(new AdListener() {
             public void onAdLoaded() {
-// Call displayInterstitial() function
-                displayInterstitial();
+
+                card1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        displayInterstitial();
+                    }
+                });
             }
         });
         // Interstetial ad Finished
@@ -70,14 +147,53 @@ public class MainActivity extends ActionBarActivity {
         //Banner Ad Space
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
-       // mAdView.setAdSize(AdSize.SMART_BANNER);
         AdRequest adRequest = new AdRequest.Builder()
-               .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
+                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
                 .build();
         mAdView.loadAd(adRequest);
 
         //Banner ad finished
 
+        promo = (CardView) findViewById(R.id.promos);
+        promo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=vadeworks.news.duniya"));
+                startActivity(i);
+            }
+        });
+
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    //get the Document object from the site. Enter the link of site you want to fetch
+                    Document document = Jsoup.connect("http://ashwinchandlapur.github.io/SVGName/").get(); // this is the website string
+                    //Get the text we want
+                    final String title = document.select("h2").text().toString();
+                    final String title1= document.select("h3").text().toString();
+                    Log.d("String title is", title);
+                    //set the title of text view
+                    //Run this on ui thread because another thread cannot touch the views of main thread
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            card1.setVisibility(View.VISIBLE);
+                            //set both the text views
+                            rView.setText(title);
+//                            rView.setMovementMethod(new ScrollingMovementMethod());
+                            rView1.setText(title1);
+
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
     }
     public void displayInterstitial() {
@@ -177,4 +293,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
+
+    private void loadRewardedVideoAd() {
+        mRewardedVideoAd.loadAd(getResources().getString(R.string.rewarded_home),
+                new AdRequest.Builder().build());
+    }
 }

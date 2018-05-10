@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "my.example.andrei.customkeyboard"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 22
         versionCode 19
         versionName "3.61"

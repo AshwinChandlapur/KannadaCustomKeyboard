@@ -16,6 +16,7 @@ import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -61,7 +62,7 @@ public class KannadaPada extends AppCompatActivity {
     int c_row;
     TextView message;
     private InterstitialAd interstitial;
-
+    CardView promo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,15 @@ public class KannadaPada extends AppCompatActivity {
         });
         // Interstetial ad Finished
 
+
+        promo = (CardView) findViewById(R.id.promos);
+        promo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=vadeworks.news.duniya"));
+                startActivity(i);
+            }
+        });
 
 
         new Thread(new Runnable() {

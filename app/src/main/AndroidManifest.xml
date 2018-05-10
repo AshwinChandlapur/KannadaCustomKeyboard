@@ -79,11 +79,15 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".db_notif_Facts.db_notif" />
+        <activity android:name=".db_notif_Facts.db_notif">
+        </activity>
         <activity
             android:name=".db_notif_kannadapada.KannadaPada"
             android:label="@string/title_activity_kannada_pada"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+        </activity>
 
     </application>
 

@@ -95,11 +95,13 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-runtime-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-verifier" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-apk" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-resources" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-support" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifest-checker" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged-not-compiled-resources" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/prebuild" />
@@ -107,6 +109,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/reload-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res_stripped" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/resources" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/split-apk" />
@@ -120,42 +123,42 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="com.google.firebase:firebase-analytics-10.0.1" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-base-10.0.1" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-clearcut-10.0.1" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-ads-10.0.1" level="project" />
-    <orderEntry type="library" name="com.android.support:support-core-ui-25.2.0" level="project" />
-    <orderEntry type="library" name="com.android.support:cardview-v7-25.2.0" level="project" />
-    <orderEntry type="library" name="com.afollestad.material-dialogs:core-0.8.6.2" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-iid-10.0.1" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-gcm-10.0.1" level="project" />
-    <orderEntry type="library" name="com.android.support:support-media-compat-25.2.0" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-gass-10.0.1" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-analytics-impl-10.0.1" level="project" />
-    <orderEntry type="library" name="com.android.support.constraint:constraint-layout-solver:1.0.2@jar" level="project" />
-    <orderEntry type="library" name="com.android.support.constraint:constraint-layout-1.0.2" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-ads-lite-10.0.1" level="project" />
-    <orderEntry type="library" name="me.zhanghai.android.materialprogressbar:library-1.1.7" level="project" />
-    <orderEntry type="library" name="com.android.support:support-v4-25.2.0" level="project" />
-    <orderEntry type="library" name="com.android.support:support-fragment-25.2.0" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-common-10.0.1" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-basement-10.0.1" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-ads-10.0.1" level="project" />
-    <orderEntry type="library" name="com.android.support:support-core-utils-25.2.0" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-tasks-10.0.1" level="project" />
-    <orderEntry type="library" name="com.android.support:animated-vector-drawable-25.2.0" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-iid-10.0.1" level="project" />
-    <orderEntry type="library" name="com.android.support:design-25.2.0" level="project" />
-    <orderEntry type="library" name="com.android.support:appcompat-v7-25.2.0" level="project" />
-    <orderEntry type="library" name="com.android.support:transition-25.2.0" level="project" />
-    <orderEntry type="library" name="com.android.support:support-compat-25.2.0" level="project" />
-    <orderEntry type="library" name="com.android.support:support-annotations:25.2.0@jar" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-core-10.0.1" level="project" />
-    <orderEntry type="library" name="com.squareup.picasso:picasso:2.5.2@jar" level="project" />
-    <orderEntry type="library" name="com.github.javiersantos:MaterialStyledDialogs-1.5.5" level="project" />
-    <orderEntry type="library" name="com.android.support:recyclerview-v7-25.2.0" level="project" />
-    <orderEntry type="library" name="com.android.support:support-vector-drawable-25.2.0" level="project" />
-    <orderEntry type="library" name="com.onesignal:OneSignal-3.8.1" level="project" />
-    <orderEntry type="library" name="org.jsoup:jsoup:1.11.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.0.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-fragment-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: me.zhanghai.android.materialprogressbar:library-1.1.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.onesignal:OneSignal-3.8.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-compat-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-lite-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:transition-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.javiersantos:MaterialStyledDialogs-1.5.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-clearcut-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gass-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ads-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:cardview-v7-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gcm-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-v4-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.picasso:picasso:2.5.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-iid-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:design-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.afollestad.material-dialogs:core-0.8.6.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-core-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:25.2.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable-25.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jsoup:jsoup:1.11.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils-25.2.0" level="project" />
   </component>
 </module>
