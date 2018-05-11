@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "my.example.andrei.customkeyboard"
         minSdkVersion 18
-        targetSdkVersion 22
+        targetSdkVersion 26
         versionCode 19
         versionName "3.61"
         manifestPlaceholders = [onesignal_app_id               : "28201b3b-f651-4a28-aaff-cee8ee96ee1a",
@@ -24,23 +24,21 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //compile 'com.daimajia.easing:library:2.0@aar'
     // compile 'com.daimajia.androidanimations:library:2.2@aar'
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.google.android.gms:play-services-ads:10.0.1'
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.github.javiersantos:MaterialStyledDialogs:1.5.5'
-    compile 'com.google.firebase:firebase-ads:10.0.1'
-    compile 'com.google.firebase:firebase-core:10.0.1'
-    compile 'com.android.support:cardview-v7:25.2.0'
-    compile 'com.onesignal:OneSignal:3.+@aar'
-    compile 'com.google.android.gms:play-services-gcm:10.0.1'
-    compile 'com.android.support:support-compat:25.2.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'org.jsoup:jsoup:1.11.2'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.google.android.gms:play-services-ads:15.0.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.github.javiersantos:MaterialStyledDialogs:1.5.5'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.onesignal:OneSignal:3.+@aar'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.0'
+    implementation 'com.android.support:support-compat:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'org.jsoup:jsoup:1.11.2'
 }
 apply plugin: 'com.google.gms.google-services'
 
