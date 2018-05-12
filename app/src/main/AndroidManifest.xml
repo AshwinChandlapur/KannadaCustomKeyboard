@@ -25,7 +25,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="my.example.andrei.customkeyboard.MESSAGE" />
 
@@ -54,8 +55,10 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".NotifHandler" />
-        <activity android:name=".NotifTray" />
+        <activity android:name=".NotifHandler"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NotifTray"
+            android:screenOrientation="portrait"/>
         <activity android:name=".oneSignal" />
 
         <receiver
@@ -79,14 +82,14 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".db_notif_Facts.db_notif">
+        <activity android:name=".db_notif_Facts.db_notif"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".db_notif_kannadapada.KannadaPada"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_kannada_pada"
             android:theme="@style/AppTheme.NoActionBar">
-
-
         </activity>
 
     </application>

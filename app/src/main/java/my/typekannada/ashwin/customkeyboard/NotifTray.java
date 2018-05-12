@@ -14,10 +14,13 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.google.android.gms.ads.InterstitialAd;
 
+import my.typekannada.ashwin.customkeyboard.db_notif_kannadapada.KannadaPada;
+
 public class NotifTray extends AppCompatActivity {
     InterstitialAd mInterstitialAd;
     private InterstitialAd interstitial;
     String s,s1,s3;
+    TextView word;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,14 @@ public class NotifTray extends AppCompatActivity {
         TextView heading=(TextView)findViewById(R.id.textss);
         heading.setTypeface(myFont);
         Button feedback=(Button)findViewById(R.id.feedback) ;
-
+        word = findViewById(R.id.word);
+        word.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), KannadaPada.class);
+                startActivity(intent);
+            }
+        });
 
 
 

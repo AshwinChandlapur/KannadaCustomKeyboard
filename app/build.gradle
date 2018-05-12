@@ -8,8 +8,8 @@ android {
         applicationId "my.example.andrei.customkeyboard"
         minSdkVersion 18
         targetSdkVersion 26
-        versionCode 19
-        versionName "3.61"
+        versionCode 20
+        versionName "3.7"
         manifestPlaceholders = [onesignal_app_id               : "28201b3b-f651-4a28-aaff-cee8ee96ee1a",
                                 // Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: "1040549393719"]
@@ -30,12 +30,13 @@ dependencies {
     // compile 'com.daimajia.androidanimations:library:2.2@aar'
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.google.android.gms:play-services-ads:15.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.0'
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.github.javiersantos:MaterialStyledDialogs:1.5.5'
     implementation 'com.android.support:cardview-v7:26.1.0'
     implementation 'com.onesignal:OneSignal:3.+@aar'
-    implementation 'com.google.android.gms:play-services-gcm:15.0.0'
+    implementation 'com.google.firebase:firebase-core:15.0.0'
     implementation 'com.android.support:support-compat:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'org.jsoup:jsoup:1.11.2'

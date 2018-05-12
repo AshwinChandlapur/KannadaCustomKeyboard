@@ -20,11 +20,13 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
@@ -38,6 +40,8 @@ import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 
 
 import org.jsoup.Jsoup;
@@ -50,91 +54,38 @@ public class MainActivity extends AppCompatActivity {
     private InterstitialAd interstitial;
     final String PREFS_NAME = "MyPrefsFile";
     CardView promo;
-    TextView rView,rView1;
-    CardView card1;
-    ImageView playButton;
     private RewardedVideoAd mRewardedVideoAd;
+    private ScrollView scroll;
+    private FirebaseAnalytics mFirebaseAnalytics;
+    LinearLayout ll1;
 
-    private static final String AD_CARD = "ad_card";
-    private static final String NEWS_PROMO_CARD="news_promo_card";
-//    FirebaseRemoteConfig mFirebaseRemoteConfig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//
-//        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
-//        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
-//                .setDeveloperModeEnabled(BuildConfig.DEBUG)
-//                .build();
-//        mFirebaseRemoteConfig.setConfigSettings(configSettings);
-//        mFirebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
-//
-//        long cacheExpiration = 24 * 60 * 60; // 1 Day
-//
-//        if (mFirebaseRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()) {
-//            cacheExpiration = 0;
-//        }
-//
-//        mFirebaseRemoteConfig.fetch(cacheExpiration).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//
-//                if(mFirebaseRemoteConfig.getBoolean(AD_CARD)){
-//                        card1.setVisibility(View.VISIBLE);
-//                }else{
-//                    card1.setVisibility(View.GONE);
-//                }
-//
-//
-//                if(mFirebaseRemoteConfig.getBoolean(NEWS_PROMO_CARD)){
-//                    promo.setVisibility(View.VISIBLE);
-//                }else{
-//                    promo.setVisibility(View.GONE);
-//                }
-//
-//
-//            }
-//        });
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
-
-        card1 = (CardView)findViewById(R.id.card1);
-        rView = (TextView)findViewById(R.id.rView);
-        rView1 = (TextView)findViewById(R.id.rView1);
-
-
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        loadRewardedVideoAd();
-        playButton = (ImageView) findViewById(R.id.playButton);
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mRewardedVideoAd.isLoaded()) {
-                    mRewardedVideoAd.show();
-                }else{
-                    displayInterstitial();
-                }
-            }
-        });
-
+        scroll = findViewById(R.id.scrollView);
+        promo = findViewById(R.id.promos);
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-1924436259631090/6298664761");
 
         //Interstitial Ad Space
         AdRequest adRequests = new AdRequest.Builder()
-                .addTestDevice("91BCA0B98362AF53D5488A3F87FA1614")
+//                .addTestDevice("91BCA0B98362AF53D5488A3F87FA1614")
                 .build();
         interstitial = new InterstitialAd(MainActivity.this);
         interstitial.setAdUnitId(getString(R.string.home_interstitial_id));
         interstitial.loadAd(adRequests);
         interstitial.setAdListener(new AdListener() {
             public void onAdLoaded() {
-
-                card1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        displayInterstitial();
+                scroll.setOnTouchListener(new View.OnTouchListener() {
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_UP) {
+                            displayInterstitial();
+                        }
+                        return false;
                     }
                 });
             }
@@ -150,9 +101,13 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         mAdView.loadAd(adRequest);
 
-        //Banner ad finished
+        //Banner Ad Finished
 
-        promo = (CardView) findViewById(R.id.promos);
+
+
+
+
+
         promo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,69 +118,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-
-                    //get the Document object from the site. Enter the link of site you want to fetch
-                    Document document = Jsoup.connect("http://ashwinchandlapur.github.io/SVGName/").get(); // this is the website string
-                    //Get the text we want
-                    final String title = document.select("h2").text().toString();
-                    final String title1= document.select("h3").text().toString();
-                    Log.d("String title is", title);
-                    //set the title of text view
-                    //Run this on ui thread because another thread cannot touch the views of main thread
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            card1.setVisibility(View.VISIBLE);
-                            //set both the text views
-                            rView.setText(title);
-//                            rView.setMovementMethod(new ScrollingMovementMethod());
-                            rView1.setText(title1);
-
-                        }
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-
     }
+
     public void displayInterstitial() {
 // If Ads are loaded, show Interstitial else show nothing.
         if (interstitial.isLoaded()) {
             interstitial.show();
         }
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-          //  Intent k = new Intent(MainActivity.this,deeplink.class);
-         //   startActivity(k);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
@@ -288,12 +188,5 @@ public class MainActivity extends AppCompatActivity {
         j.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
         startActivity(j);
 
-    }
-
-
-
-    private void loadRewardedVideoAd() {
-        mRewardedVideoAd.loadAd(getResources().getString(R.string.rewarded_home),
-                new AdRequest.Builder().build());
     }
 }

@@ -47,8 +47,6 @@
             android:gravity="center"/>
 
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,6 +83,16 @@
         android:textSize="13sp"
         android:layout_below="@+id/textView18"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ಇವತ್ತಿನ ಕನ್ನಡ ಪದ"
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/word"/>
+
 
    <!-- <com.google.android.gms.ads.NativeExpressAdView
         android:id="@+id/adView"

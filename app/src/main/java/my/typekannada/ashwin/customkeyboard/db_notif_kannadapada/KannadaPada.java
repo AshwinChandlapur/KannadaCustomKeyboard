@@ -31,6 +31,8 @@ import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.squareup.picasso.Picasso;
 
 import org.jsoup.Jsoup;
@@ -60,36 +62,59 @@ public class KannadaPada extends AppCompatActivity {
 
     int n_row;
     int c_row;
-    TextView message;
+    TextView message,request,show;
     private InterstitialAd interstitial;
-    CardView promo;
+    CardView promo,ad_card;
+    private RewardedVideoAd mRewardedVideoAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kannada_pada);
 
+        message = findViewById(R.id.message);
+        request = findViewById(R.id.req);
+        show = findViewById(R.id.show);
+        promo =  findViewById(R.id.promos);
+        ad_card = findViewById(R.id.ad_card);
 
-        //Interstitial Ad Space
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        loadRewardedVideoAd();
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Document document = Jsoup.connect("http://ashwinchandlapur.github.io/SVGName/").get(); // this is the website string
+                    final String req = document.select("h2").text().toString();
+                    final String sho= document.select("h3").text().toString();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            request.setText(req);
+                            show.setText(sho);
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+
+
         AdRequest adRequests = new AdRequest.Builder()
                 .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37")
                 .build();
-        // Prepare the Interstitial Ad
         interstitial = new InterstitialAd(KannadaPada.this);
-// Insert the Ad Unit ID
+
         interstitial.setAdUnitId(getString(R.string.notif_interstitial_id));
         interstitial.loadAd(adRequests);
-// Prepare an Interstitial Ad Listener
-        interstitial.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-// Call displayInterstitial() function
-                displayInterstitial();
-            }
-        });
-        // Interstetial ad Finished
 
 
-        promo = (CardView) findViewById(R.id.promos);
+
+
         promo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,35 +123,27 @@ public class KannadaPada extends AppCompatActivity {
             }
         });
 
-
-        new Thread(new Runnable() {
-
+        ad_card.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                try {
+            public void onClick(View v) {
 
-                    //get the Document object from the site. Enter the link of site you want to fetch
-                    Document document = Jsoup.connect("http://ashwinchandlapur.github.io/SVGName/").get(); // this is the website string
-                    //Get the text we want
-                    final String title = document.select("h2").text().toString();
-                    Log.d("String title is", title);
-                    //set the title of text view
-                    //Run this on ui thread because another thread cannot touch the views of main thread
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
+                double random = Math.random();
+                if(random>0.5){
+                    if (mRewardedVideoAd.isLoaded()) {
+                        mRewardedVideoAd.show();
+                    }else if(interstitial.isLoaded()){
+                        interstitial.show();
+                    }
+                }else{
+                    if (interstitial.isLoaded()) {
+                        interstitial.show();
+                    }else if(mRewardedVideoAd.isLoaded()){
+                        mRewardedVideoAd.show();
 
-                            //set both the text views
-                            rView = (TextView)findViewById(R.id.rView);
-                            rView.setText(title);
-                            rView.setMovementMethod(new ScrollingMovementMethod());
-                        }
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    }
                 }
             }
-        }).start();
+        });
 
 
 
@@ -172,10 +189,6 @@ public class KannadaPada extends AppCompatActivity {
 
 
 
-
-
-        message = (TextView)findViewById(R.id.message);
-
         DatabaseHelper_Pada myDbHelper = new DatabaseHelper_Pada(KannadaPada.this);
         try {
             myDbHelper.createDataBase();
@@ -201,13 +214,6 @@ public class KannadaPada extends AppCompatActivity {
         c_row=randnum();
         n_row=randnum();
         next();
-
-
-
-
-
-
-
     }
 
 
@@ -228,10 +234,6 @@ public class KannadaPada extends AppCompatActivity {
         String imgString = c.getString(3);
         Log.i("Message",factString);
         message.setText(factString);
-
-
-
-
 
 //        ivinst=(ImageView)findViewById(R.id.hideme);
         ImageView imgView=(ImageView)findViewById(R.id.imgView);
@@ -258,11 +260,6 @@ public class KannadaPada extends AppCompatActivity {
                     .placeholder(R.drawable.wordaday)
                     .into(imgView);
         }
-
-
-
-
-
     }
 
 
@@ -287,6 +284,10 @@ public class KannadaPada extends AppCompatActivity {
         }
     }
 
+    private void loadRewardedVideoAd() {
+        mRewardedVideoAd.loadAd(getResources().getString(R.string.rewarded_home),
+                new AdRequest.Builder().build());
+    }
 
 }
 
